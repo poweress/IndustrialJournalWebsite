@@ -1,9 +1,21 @@
-# резюме/портфолио разработчика находится в разработке
+# Промышленный журнал АСУТП (Сайт-визитка)
 
-### Одностраничное резюме со слайдером-портфолио для неограниченного количества проектов.
+Это репозиторий с исходными файлами сайта-визитки для Android-приложения **"Промышленный журнал АСУТП"**.
 
-Основная страница:
-<!-- ![screencapture-natkaida-github-io-resume-2023-12-26-18_39_07](https://github.com/natkaida/resume/assets/85797091/e99bf1f9-eb14-4c59-b8a6-8cd469d3c671) -->
+🌐 **Сайт приложения:** [Перейти на сайт](https://poweress.github.io/industrial-journal-website/) *(Убедитесь, что ссылка совпадает с вашей)*
 
-Страница проекта:
-<!-- ![screencapture-natkaida-github-io-resume-project-html-2023-12-26-18_40_11](https://github.com/natkaida/resume/assets/85797091/d4d86363-fae3-4d04-ba13-abe624d94fbd) -->
+📱 **Скачать приложение:** [Google Play](https://play.google.com/store/apps/details?id=com.indulogix.industrialjournal)
+
+## О проекте
+Сайт предназначен для презентации функционала мобильного приложения, демонстрации разницы между тарифами (Free / PRO) и предоставления публичного доступа к Политике конфиденциальности, необходимой для публикации в Google Play.
+
+## Структура
+- `index.html` — Главная страница с обзором.
+- `features.html` — Подробное описание возможностей (Оффлайн, Иерархия, Аналитика, Telegram, PDF и др.).
+- `manual.html` — Пошаговое руководство пользователя (инструкция с чего начать).
+- `privacy.html` — Политика конфиденциальности (Privacy Policy) на двух языках (EN/RU).
+
+## Технологии
+- HTML5 / CSS3
+- [Bootstrap 5](https://getbootstrap.com/) — адаптивная сетка и стили (Custom Dark Theme).
+- [Font Awesome](https://fontawesome.com/) — векторные иконки.
