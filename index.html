@@ -1,317 +1,171 @@
 <!DOCTYPE html>
 <html lang="ru">
-   <head>
-      <title>Роман Матвеевич - junior Data-Scientist, Developer</title>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="">
-      <meta name="author" content="Proglib">
-      <link rel="shortcut icon" href="assets/favicon.ico">
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-      <script defer src="assets/fonts/all.min.js"></script>
-      <link id="theme-style" rel="stylesheet" href="assets/css/style.css">
-      <link id="additional-style" rel="stylesheet" href="assets/css/resume.css">
-   </head>
-   <body>
-      <div class="main-wrapper">
-         <div class="container px-3 px-lg-5">
-            <article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg rounded">
-               <div class="resume-header">
-                  <div class="row align-items-center">
-                     <div class="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
-                        <h2 class="resume-name mb-0 text-uppercase">Роман Матвеевич</h2>
-                        <div class="resume-tagline mb-3 mb-md-0">Data-Scientist</div>
-                     </div>
-                     <div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
-                        <ul class="list-unstyled mb-0">
-                           <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg me-2 "></i><a class="resume-link" href="tel:#">+7(778)205-56-83</a></li>
-                           <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg me-2"></i><a class="resume-link" href="mailto:#">poweres35@gmail.com</a></li>
-                           <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="#">В разработке</a></li>
-                           <li class="mb-2"><i class="fas fa-map-marker-alt fa-fw fa-lg me-2"></i><a class="resume-link" href="#">Казахстан, Жезказган</a></li>
-                           <li class="mb-2"><i class="fa-solid fa-feather"></i><a class="resume-link" href="#">Статус резюме: В разработке</a></li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Промышленный журнал АСУТП</title>
+    <!-- Подключаем Bootstrap для адаптивности -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключаем иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212; /* Темный фон приложения */
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .text-neon-purple { color: #b794f6; }
+        .text-neon-green { color: #4ade80; }
+        .bg-neon-purple { background-color: #b794f6; color: #121212; }
+        .bg-neon-green { background-color: #4ade80; color: #121212; }
+        
+        .btn-custom {
+            background-color: #b794f6;
+            border: none;
+            color: #121212;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #9d73eb;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+        .feature-card {
+            background-color: #1e1e1e;
+            border: 1px solid rgba(183, 148, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #b794f6;
+        }
+        .pricing-card {
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid #333;
+        }
+        .pricing-card.pro {
+            border-color: #4ade80;
+            box-shadow: 0 0 20px rgba(74, 222, 128, 0.1);
+        }
+        .hero-section {
+            padding: 100px 0 80px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #121212 100%);
+        }
+        footer {
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
 
+    <!-- Главный экран -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <i class="fas fa-cogs fa-4x text-neon-purple mb-4"></i>
+            <h1 class="display-4 fw-bold text-white mb-3">Промышленный журнал АСУТП</h1>
+            <p class="lead mb-5 mx-auto" style="max-width: 700px;">Ваш персональный цифровой помощник для учета оборудования, фиксации дефектов и планирования ТО. Работает прямо в цеху.</p>
+            <a href="#download" class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow">
+                <i class="fab fa-google-play me-2"></i> Скачать в Google Play
+            </a>
+        </div>
+    </header>
+
+    <!-- Описание функционала -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 text-white">Ключевые возможности</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-wifi fa-3x text-neon-green mb-3"></i>
+                        <h4 class="h5 fw-bold text-white">Offline-first</h4>
+                        <p class="text-muted small mb-0">Полная функциональность в подвалах и цехах без связи. Работайте с данными без интернета.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-sitemap fa-3x text-neon-purple mb-3"></i>
+                        <h4 class="h5 fw-bold text-white">Иерархия объектов</h4>
+                        <p class="text-muted small mb-0">Структурируйте базу: Предприятие ➔ Цех ➔ Подстанция ➔ Агрегат. Находите нужный узел за секунды.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <i class="fab fa-telegram-plane fa-3x text-neon-green mb-3"></i>
+                        <h4 class="h5 fw-bold text-white">Telegram-бот</h4>
+                        <p class="text-muted small mb-0">Авто-отчеты о планах и итогах дня, мгновенные уведомления об авариях прямо в рабочий чат.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-file-pdf fa-3x text-neon-purple mb-3"></i>
+                        <h4 class="h5 fw-bold text-white">Генерация PDF</h4>
+                        <p class="text-muted small mb-0">Создавайте красивые акты ТО, паспорта оборудования и сводные отчеты в один клик.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сравнение версий -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 text-white">Тарифы</h2>
+            <div class="row justify-content-center g-4">
+                <!-- Free -->
+                <div class="col-md-5 col-lg-4">
+                    <div class="pricing-card h-100 d-flex flex-column">
+                        <h3 class="text-center mb-4 text-white">Базовая версия</h3>
+                        <ul class="list-unstyled mb-4 flex-grow-1">
+                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> До 30 агрегатов в базе</li>
+                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> Локальное хранение данных</li>
+                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> PDF отчеты (с водяным знаком)</li>
+                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> Интеграция с Telegram</li>
                         </ul>
-                     </div>
-                  </div>
-               </div>
-               <hr>
-               <div class="resume-intro py-3">
-                  <div class="row align-items-center">
-                     <div class="col-12 col-md-3 col-xl-2 text-center">
-                        <img class="resume-profile-image mb-3 mb-md-0 me-md-5  ms-md-0 rounded mx-auto rounded-circle" src="assets/img/photo.png" alt="image">
-                     </div>
-                     <div class="col text-start">
-                        <p class="mb-0">Имею обширный опыт в создании качественных и эффективных веб-интерфейсов, успешно решаю задачи любой сложности. Знаю все о создании адаптивных кросс-браузерных интерфейсов, а также об использовании современных технологий и стандартов веб-разработки. Работал в крупнейших российских ИТ-компаниях. Готов применять свои знания и навыки для достижения общих целей и развития в команде профессионалов. </p>
-                     </div>
-                  </div>
-               </div>
-               <hr>
-               <div class="resume-body">
-                  <div class="row">
-                     <div class="resume-main col-12 col-lg-8 col-xl-9   pe-0   pe-lg-5">
-                        <section class="work-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Опыт работы</h3>
-                           <div class="item mb-3">
-                              <div class="item-heading row align-items-center mb-2">
-                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 text-primary">Junior Data-Scientist</h4>
-                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">IT Решения | декабрь 2022 - настоящее время</div>
-                              </div>
-                              <div class="item-content">
-                                 <p>В качестве старшего фронтенд-разработчика я занимаюсь разработкой пользовательского интерфейса (UI) для веб-приложений. Работаю в тесном взаимодействии с дизайнерами, бизнес-аналитиками и другими разработчиками для достижения общих целей проекта.</p>
-                                 <ul class="resume-list">
-                                    <li>в процессе разработки проекта <strong>WePay</strong>.</li>
-                                    <li>Создал print('Hello World') для компании .</li>
-                                    <li>Улучшил пользовательский опыт приложения <strong>'Hello world'</strong> и повысил конверсию на 15%.</li>
-                                 </ul>
-                                 <hr>
-                              </div>
-                           </div>
-                           <div class="item mb-3">
-                              <div class="item-heading row align-items-center mb-2">
-                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 text-primary">Middle фронтенд-разработчик</h4>
-                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Digital Forest | сентябрь 2020 - ноябрь 2022</div>
-                              </div>
-                              <div class="item-content">
-                                 <p>Разрабатывал и поддерживал веб-приложения с использованием HTML, CSS и JavaScript. Участвовал в проектировании интерфейсов и пользовательских взаимодействий. Оптимизировал производительность и доступность веб-приложений. Тестировал код на различных браузерах и устройствах. Сотрудничал с дизайнерами и бэкенд-разработчиками для обеспечения целостности и качества продукта.</p>
-                                 <ul class="resume-list">
-                                    <li>Участвовал в разработке новых функциональностей, что привело к увеличению пользовательской активности и улучшению рейтинга продукта.</li>
-                                    <li>Принимал активное участие в рефакторинге и оптимизации кода приложения <strong>DigitalMoney</strong>.</li>
-                                    <li>Оптимизировал UI/UX приложения для <strong>AlphaBank</strong>.</li>
-                                 </ul>
-                                 <hr>
-                              </div>
-                           </div>
-                           <div class="item mb-3">
-                              <div class="item-heading row align-items-center mb-2">
-                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0  text-primary">Junior фронтенд-разработчик</h4>
-                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">CryptoMoney | июль 2018 - август 2020</div>
-                              </div>
-                              <div class="item-content">
-                                 <p>Создавал макеты и прототипы мобильных приложений с использованием HTML, CSS, JavaScript. Оптимизировал производительность сайта компании и улучшал пользовательский опыт приложения <strong>Cryptic</strong>.</p>
-                                 <ul class="resume-list">
-                                    <li>Создал удобный и интуитивно понятный интерфейс для приложения, что повысило количество пользователей сервиса на 10%.</li>
-                                    <li>Разрабатывал анимацию и интерактивные элементы для повышения вовлеченности пользователей на сайте.</li>
-                                    <li>Оптимизировал загрузку страниц сайта, что увеличило скорость <strong>Vault</strong> на 30%.</li>
-                                 </ul>
-                                 <hr>
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="item-heading row align-items-center mb-2">
-                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 text-primary">Стажер</h4>
-                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">DrWeb | январь 2018 - июнь 2018</div>
-                              </div>
-                              <div class="item-content">
-                                 <p>Разрабaтывал пользовательский интерфейс под руководством старших коллег. Верстал макеты, предоставленныe дизайнерами, используя HTML, CSS, JavaScript. Применял адаптивную верстку для корректного отображения страниц на разных устройствах. Исправлял ошибки и устранял неполадки. </p>
-                                 <ul class="resume-list">
-                                    <li>Разработал 3 SPA приложения на React с использованием REST API.</li>
-                                    <li>Адаптировал устаревший сайт интернет-магазина под мобильные устройства.</li>
-                                    <li>Получил опыт разработки на Angular и Vue.</li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </section>
-                        <section class="project-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Проекты</h3>
-                           <div id="carouselResumeControls" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="false">
-                              <div class="carousel-inner">
-                                 <div class="carousel-item active">
-                                    <div class="container">
-                                       <div class="row row-cols-1 row-cols-md-3 g-4">
-                                          <div class="col">
-                                             <div class="card" >
-                                                <img src="assets/img/projects/project1.png" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Интерфейс для CRM</h5>
-                                                   <p class="card-text small">Интерактивный backend-driven интерфейс для корпоративной CRM.</p>
-                                                   <div class="text-end">
-                                                      <a href="project.html" class="stretched-link"></a>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col">
-                                             <div class="card" >
-                                                <img src="assets/img/projects/project2.png" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Платежная система</h5>
-                                                   <p class="card-text small">Ребрендинг и редизайн платежной системы национального банка WeCredit.</p>
-                                                   <div class="text-end">
-                                                      <a href="project.html" class="stretched-link"></a>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col">
-                                             <div class="card">
-                                                <img src="assets/img/projects/project3.png" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Клиника Improve</h5>
-                                                   <p class="card-text small">Мобильное приложение для клиники пластической хирургии.</p>
-                                                   <div class="text-end">
-                                                      <a href="project.html" class="stretched-link"></a>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="carousel-item">
-                                    <div class="container">
-                                       <div class="row row-cols-1 row-cols-md-3 g-4">
-                                          <div class="col">
-                                             <div class="card" >
-                                                <img src="assets/img/projects/project4.png" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Be Creative</h5>
-                                                   <p class="card-text small">Мобильное приложение и сайт для творческой студии Be Creative.</p>
-                                                   <div class="text-end">
-                                                      <a href="project.html" class="stretched-link"></a>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col">
-                                             <div class="card" >
-                                                <img src="assets/img/projects/project5.png" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Агентство TravelFree</h5>
-                                                   <p class="card-text small">Интерфейс сайта и система бронирования для туристического агентства.</p>
-                                                   <div class="text-end">
-                                                      <a href="project.html" class="stretched-link"></a>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="col">
-                                             <div class="card" >
-                                                <img src="assets/img/projects/project6.png" class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Блог-платформа</h5>
-                                                   <p class="card-text small">Сайт и мессенджер для студии развития творческого потенциала.</p>
-                                                   <div class="text-end">
-                                                      <a href="project.html" class="stretched-link"></a>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <a class="carousel-control-prev" href="#carouselResumeControls" role="button" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="carousel-control-next" href="#carouselResumeControls" role="button" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Next</span>
-                              </a>
-                           </div>
-                        </section>
-                     </div>
-                     <aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
-                        <section class="skills-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Навыки</h3>
-                           <div class="item">
-                              <h4 class="item-title">Технические</h4>
-                              <ul class="list-unstyled resume-skills-list">
-                                 <li class="mb-2">JavaScript/Angular/React/Vue</li>
-                                 <li class="mb-2">Основы Python/Ruby/PHP
-                                 <li>
-                                 <li class="mb-2">Node.js/ASP.NET</li>
-                                 <li class="mb-2">PostgreSQL/MySQL</li>
-                                 <li class="mb-2">Адаптивный дизайн</li>
-                                 <li class="mb-2">Backend-driven UI</li>
-                              </ul>
-                           </div>
-                           <div class="item">
-                              <h4 class="item-title">Личные</h4>
-                              <ul class="list-unstyled resume-skills-list">
-                                 <li class="mb-2">Работоспособность</li>
-                                 <li class="mb-2">Стрессоустойчивость
-                                 <li>
-                                 <li class="mb-2">Быстрая обучаемость</li>
-                                 <li class="mb-2">Высокая эффективность</li>
-                                 <li class="mb-2">Критическое мышление</li>
-                              </ul>
-                           </div>
-                        </section>
-                        <section class="education-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Образование</h3>
-                           <ul class="list-unstyled resume-education-list">
-                              <li class="mb-3">
-                                 <div class="resume-degree font-weight-bold">Разработчик ПО</div>
-                                 <div class="resume-degree-org text-muted">SkillFactory</div>
-                                 <div class="resume-degree-time text-muted">2021 - 2024</div>
-                              </li>
-                              <li>
-                                 <div class="resume-degree font-weight-bold">Data-Scientist</div>
-                                 <div class="resume-degree-org text-muted">SkillFactory</div>
-                                 <div class="resume-degree-time text-muted">2021 - 2024</div>
-                              </li>
-                           </ul>
-                        </section>
-                        <section class="education-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Сертификаты</h3>
-                           <ul class="list-unstyled resume-awards-list">
-                              <li class="mb-3">
-                                 <div class="font-weight-bold">еще один</div>
-                                 <div class="text-muted">-----</div>
-                              </li>
-                              <li>
-                                 <div class="font-weight-bold">-----</div>
-                                 <div class="text-muted">------</div>
-                              </li>
-                           </ul>
-                        </section>
-                        <section class="education-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Награды</h3>
-                           <ul class="list-unstyled resume-awards-list">
-                              <li class="mb-3">
-                                 <div class="font-weight-bold">Лучший интерфейс</div>
-                                 <div class="text-muted">Самому лучшему</div>
-                              </li>
-                              <li>
-                                 <div class="font-weight-bold">Лучший дизайн</div>
-                                 <div class="text-muted">----</div>
-                              </li>
-                           </ul>
-                        </section>
-                        <section class="skills-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Языки</h3>
-                           <ul class="list-unstyled resume-lang-list">
-                              <li class="mb-2">Русский <span class="text-muted">C2</span></li>
-                              <li>English <span class="text-muted">B2</span></li>
-                           </ul>
-                        </section>
-                        <section class="skills-section py-3">
-                           <h3 class="text-uppercase resume-section-heading mb-4">Интересы</h3>
-                           <ul class="list-unstyled resume-interests-list mb-0">
-                              <li class="mb-2">Робототехника</li>
-                              <li class="mb-2">Машинное обучение</li>
-                              <li class="mb-2">Разработка элуктронных устройств</li>
-                              <li>3D-моделирование Компас 3D</li>
-                           </ul>
-                        </section>
-                     </aside>
-                  </div>
-               </div>
-               <hr>
-               <div class="resume-footer text-center">
-                  <ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
-                     <li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="#"><i class="fab fa-github-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">github.com/maxegor</span></a></li>
-                     <li class="list-inline-item mb-lg-0 me-lg-3"><a class="resume-link" href="#"><i class="fab fa-telegram fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">@maxegor</span></a></li>
-                     <li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="#"><i class="fab fa-linkedin fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/maxegor</span></a></li>
-                  </ul>
-               </div>
-            </article>
-         </div>
-         <footer class="footer text-center py-4">
-         </footer>
-      </div>
-      <script src="assets/js/bootstrap.min.js"></script>       
-   </body>
+                        <div class="text-center mt-auto pt-3 border-top border-secondary">
+                            <span class="h4 fw-bold text-white">Бесплатно</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- PRO -->
+                <div class="col-md-5 col-lg-4">
+                    <div class="pricing-card pro h-100 position-relative d-flex flex-column">
+                        <div class="position-absolute top-0 start-50 translate-middle badge bg-neon-green rounded-pill px-3 py-2 text-dark fw-bold shadow">
+                            Для профессионалов
+                        </div>
+                        <h3 class="text-center mb-4 text-neon-green">PRO Версия</h3>
+                        <ul class="list-unstyled mb-4 flex-grow-1">
+                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> <b>Безлимитное</b> оборудование</li>
+                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> Слияние БД (командная работа)</li>
+                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> Чистые PDF отчеты</li>
+                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> Умное копирование узлов</li>
+                        </ul>
+                        <div class="text-center mt-auto pt-3 border-top border-secondary">
+                            <span class="h6 text-muted">Единоразовая покупка</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="py-4 text-center mt-auto bg-black">
+        <div class="container">
+            <p class="text-muted mb-2">&copy; 2026 Промышленный журнал АСУТП.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="privacy.html" class="text-neon-purple text-decoration-none small">Политика безопасности</a>
+                <span class="text-muted small">|</span>
+                <a href="mailto:support@yourmail.com" class="text-neon-purple text-decoration-none small">Связаться с разработчиком</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>
