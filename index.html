@@ -10,55 +10,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #121212; /* Темный фон приложения */
-            color: #e0e0e0;
+            background-color: #020617; /* Глубокий темно-синий фон */
+            color: #e2e8f0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .text-neon-purple { color: #b794f6; }
-        .text-neon-green { color: #4ade80; }
-        .bg-neon-purple { background-color: #b794f6; color: #121212; }
-        .bg-neon-green { background-color: #4ade80; color: #121212; }
+        /* Новые цвета под логотип */
+        .text-neon-blue { color: #8bd3fe; } 
+        .text-accent-blue { color: #3b82f6; } 
+        .bg-neon-blue { background-color: #8bd3fe; color: #020617; }
+        .bg-accent-blue { background-color: #3b82f6; color: #ffffff; }
         
         .btn-custom {
-            background-color: #b794f6;
+            background-color: #8bd3fe;
             border: none;
-            color: #121212;
+            color: #020617;
             font-weight: bold;
             transition: all 0.3s ease;
         }
         .btn-custom:hover {
-            background-color: #9d73eb;
-            color: #121212;
+            background-color: #60a5fa;
+            color: #020617;
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 211, 254, 0.3);
         }
+        
+        /* Стили для карточек как ссылок */
         .feature-card {
-            background-color: #1e1e1e;
-            border: 1px solid rgba(183, 148, 246, 0.2);
+            background-color: #0f172a;
+            border: 1px solid rgba(139, 211, 254, 0.2);
             border-radius: 16px;
             padding: 2rem;
             height: 100%;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            display: block;
+            text-decoration: none; /* Убираем подчеркивание у ссылки */
         }
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: #b794f6;
+            border-color: #8bd3fe;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            text-decoration: none;
         }
+        .feature-card * {
+            transition: color 0.3s;
+        }
+        
         .pricing-card {
-            background-color: #1e1e1e;
+            background-color: #0f172a;
             border-radius: 16px;
             padding: 2rem;
-            border: 1px solid #333;
+            border: 1px solid #1e293b;
         }
         .pricing-card.pro {
-            border-color: #4ade80;
-            box-shadow: 0 0 20px rgba(74, 222, 128, 0.1);
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
         }
         .hero-section {
             padding: 100px 0 80px;
-            background: linear-gradient(180deg, #1a1a2e 0%, #121212 100%);
+            background: linear-gradient(180deg, #1e293b 0%, #020617 100%);
         }
         footer {
-            border-top: 1px solid #333;
+            border-top: 1px solid #1e293b;
+        }
+        
+        /* Логотип приложения */
+        .app-logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            box-shadow: 0 8px 32px rgba(139, 211, 254, 0.25);
+            margin-bottom: 24px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -67,10 +89,14 @@
     <!-- Главный экран -->
     <header class="hero-section text-center">
         <div class="container">
-            <i class="fas fa-cogs fa-4x text-neon-purple mb-4"></i>
+            <!-- ЛОГОТИП ПРИЛОЖЕНИЯ -->
+            <img src="logo.jpg" alt="Логотип Промышленный Журнал" class="app-logo" onerror="this.src='https://via.placeholder.com/130/8bd3fe/020617?text=LOGO'">
+            
             <h1 class="display-4 fw-bold text-white mb-3">Промышленный журнал АСУТП</h1>
-            <p class="lead mb-5 mx-auto" style="max-width: 700px;">Ваш персональный цифровой помощник для учета оборудования, фиксации дефектов и планирования ТО. Работает прямо в цеху.</p>
-            <a href="#download" class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow">
+            <p class="lead mb-5 mx-auto text-slate-300" style="max-width: 700px;">Ваш персональный цифровой помощник для учета оборудования, фиксации дефектов и планирования ТО. Работает прямо в цеху.</p>
+            
+            <!-- ССЫЛКА НА GOOGLE PLAY -->
+            <a href="https://play.google.com/store/apps/details?id=com.indulogix.industrialjournal" target="_blank" class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow">
                 <i class="fab fa-google-play me-2"></i> Скачать в Google Play
             </a>
         </div>
@@ -81,40 +107,49 @@
         <div class="container">
             <h2 class="text-center fw-bold mb-5 text-white">Ключевые возможности</h2>
             <div class="row g-4">
+                
+                <!-- Карточка 1 (ссылается на features.html блок offline) -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <i class="fas fa-wifi fa-3x text-neon-green mb-3"></i>
+                    <a href="features.html#offline" class="feature-card text-center">
+                        <i class="fas fa-wifi fa-3x text-accent-blue mb-3"></i>
                         <h4 class="h5 fw-bold text-white">Offline-first</h4>
                         <p class="text-muted small mb-0">Полная функциональность в подвалах и цехах без связи. Работайте с данными без интернета.</p>
-                    </div>
+                    </a>
                 </div>
+                
+                <!-- Карточка 2 (ссылается на features.html блок hierarchy) -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <i class="fas fa-sitemap fa-3x text-neon-purple mb-3"></i>
+                    <a href="features.html#hierarchy" class="feature-card text-center">
+                        <i class="fas fa-sitemap fa-3x text-neon-blue mb-3"></i>
                         <h4 class="h5 fw-bold text-white">Иерархия объектов</h4>
                         <p class="text-muted small mb-0">Структурируйте базу: Предприятие ➔ Цех ➔ Подстанция ➔ Агрегат. Находите нужный узел за секунды.</p>
-                    </div>
+                    </a>
                 </div>
+                
+                <!-- Карточка 3 (ссылается на features.html блок telegram) -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <i class="fab fa-telegram-plane fa-3x text-neon-green mb-3"></i>
+                    <a href="features.html#telegram" class="feature-card text-center">
+                        <i class="fab fa-telegram-plane fa-3x text-accent-blue mb-3"></i>
                         <h4 class="h5 fw-bold text-white">Telegram-бот</h4>
                         <p class="text-muted small mb-0">Авто-отчеты о планах и итогах дня, мгновенные уведомления об авариях прямо в рабочий чат.</p>
-                    </div>
+                    </a>
                 </div>
+                
+                <!-- Карточка 4 (ссылается на features.html блок pdf) -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <i class="fas fa-file-pdf fa-3x text-neon-purple mb-3"></i>
+                    <a href="features.html#pdf" class="feature-card text-center">
+                        <i class="fas fa-file-pdf fa-3x text-neon-blue mb-3"></i>
                         <h4 class="h5 fw-bold text-white">Генерация PDF</h4>
                         <p class="text-muted small mb-0">Создавайте красивые акты ТО, паспорта оборудования и сводные отчеты в один клик.</p>
-                    </div>
+                    </a>
                 </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Сравнение версий -->
-    <section class="py-5">
+    <section class="py-5 mb-4">
         <div class="container">
             <h2 class="text-center fw-bold mb-5 text-white">Тарифы</h2>
             <div class="row justify-content-center g-4">
@@ -123,10 +158,10 @@
                     <div class="pricing-card h-100 d-flex flex-column">
                         <h3 class="text-center mb-4 text-white">Базовая версия</h3>
                         <ul class="list-unstyled mb-4 flex-grow-1">
-                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> До 30 агрегатов в базе</li>
-                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> Локальное хранение данных</li>
-                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> PDF отчеты (с водяным знаком)</li>
-                            <li class="mb-3"><i class="fas fa-check text-muted me-2"></i> Интеграция с Telegram</li>
+                            <li class="mb-3 text-muted"><i class="fas fa-check me-2"></i> До 30 агрегатов в базе</li>
+                            <li class="mb-3 text-muted"><i class="fas fa-check me-2"></i> Локальное хранение данных</li>
+                            <li class="mb-3 text-muted"><i class="fas fa-check me-2"></i> PDF отчеты (с водяным знаком)</li>
+                            <li class="mb-3 text-muted"><i class="fas fa-check me-2"></i> Интеграция с Telegram</li>
                         </ul>
                         <div class="text-center mt-auto pt-3 border-top border-secondary">
                             <span class="h4 fw-bold text-white">Бесплатно</span>
@@ -136,15 +171,15 @@
                 <!-- PRO -->
                 <div class="col-md-5 col-lg-4">
                     <div class="pricing-card pro h-100 position-relative d-flex flex-column">
-                        <div class="position-absolute top-0 start-50 translate-middle badge bg-neon-green rounded-pill px-3 py-2 text-dark fw-bold shadow">
+                        <div class="position-absolute top-0 start-50 translate-middle badge bg-accent-blue rounded-pill px-3 py-2 text-white fw-bold shadow">
                             Для профессионалов
                         </div>
-                        <h3 class="text-center mb-4 text-neon-green">PRO Версия</h3>
+                        <h3 class="text-center mb-4 text-accent-blue">PRO Версия</h3>
                         <ul class="list-unstyled mb-4 flex-grow-1">
-                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> <b>Безлимитное</b> оборудование</li>
-                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> Слияние БД (командная работа)</li>
-                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> Чистые PDF отчеты</li>
-                            <li class="mb-3"><i class="fas fa-check text-neon-green me-2"></i> Умное копирование узлов</li>
+                            <li class="mb-3 text-e2e8f0"><i class="fas fa-check text-accent-blue me-2"></i> <b>Безлимитное</b> оборудование</li>
+                            <li class="mb-3 text-e2e8f0"><i class="fas fa-check text-accent-blue me-2"></i> Слияние БД (командная работа)</li>
+                            <li class="mb-3 text-e2e8f0"><i class="fas fa-check text-accent-blue me-2"></i> Чистые PDF отчеты (без знаков)</li>
+                            <li class="mb-3 text-e2e8f0"><i class="fas fa-check text-accent-blue me-2"></i> Умное копирование узлов</li>
                         </ul>
                         <div class="text-center mt-auto pt-3 border-top border-secondary">
                             <span class="h6 text-muted">Единоразовая покупка</span>
@@ -158,11 +193,12 @@
     <!-- Подвал -->
     <footer class="py-4 text-center mt-auto bg-black">
         <div class="container">
-            <p class="text-muted mb-2">&copy; 2026 Промышленный журнал АСУТП.</p>
+            <p class="text-muted mb-2">&copy; 2026 Промышленный журнал АСУТП. InduLogix.</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="privacy.html" class="text-neon-purple text-decoration-none small">Политика безопасности</a>
+                <a href="privacy.html" class="text-neon-blue text-decoration-none small">Политика безопасности</a>
                 <span class="text-muted small">|</span>
-                <a href="mailto:support@yourmail.com" class="text-neon-purple text-decoration-none small">Связаться с разработчиком</a>
+                <!-- ПОЧТА РАЗРАБОТЧИКА -->
+                <a href="mailto:devinforep@gmail.com" class="text-neon-blue text-decoration-none small">Связаться с разработчиком</a>
             </div>
         </div>
     </footer>
