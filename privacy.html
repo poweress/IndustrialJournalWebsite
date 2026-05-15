@@ -6,54 +6,56 @@
     <title>Privacy Policy | Политика конфиденциальности - Industrial Journal</title>
     <!-- Подключаем Bootstrap для адаптивности -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #020617; /* Глубокий темно-синий фон */
+            color: #e2e8f0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        .text-neon-purple { color: #b794f6; }
-        .text-neon-green { color: #4ade80; }
+        .text-neon-blue { color: #8bd3fe; }
+        .text-accent-blue { color: #3b82f6; }
         .content-box {
-            background-color: #1e1e1e;
+            background-color: #0f172a;
             border-radius: 16px;
             padding: 3rem;
             margin-top: 40px;
             margin-bottom: 40px;
-            border: 1px solid rgba(183, 148, 246, 0.2);
+            border: 1px solid #1e293b;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         h1 { color: #ffffff; font-weight: 800; margin-bottom: 0.5rem; }
-        h2 { color: #b794f6; font-size: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 35px; font-weight: 700; }
+        h2 { color: #8bd3fe; font-size: 1.5rem; border-bottom: 1px solid #1e293b; padding-bottom: 10px; margin-top: 35px; font-weight: 700; }
         h3 { color: #ffffff; font-size: 1.2rem; margin-top: 20px; font-weight: 600; }
-        p, li { color: #cccccc; }
-        a { color: #4ade80; text-decoration: none; transition: color 0.2s; }
-        a:hover { text-decoration: underline; color: #22c55e; }
+        p, li { color: #cbd5e1; }
+        a { color: #3b82f6; text-decoration: none; transition: color 0.2s; }
+        a:hover { text-decoration: underline; color: #60a5fa; }
         
         .lang-switch {
-            background-color: #2a2a2a;
+            background-color: #1e293b;
             padding: 10px 20px;
             border-radius: 30px;
             display: inline-flex;
             gap: 15px;
             margin-bottom: 30px;
+            border: 1px solid #334155;
         }
         .lang-switch a {
-            color: #888;
+            color: #94a3b8;
             font-weight: 600;
         }
         .lang-switch a:hover, .lang-switch a.active {
-            color: #b794f6;
+            color: #8bd3fe;
             text-decoration: none;
         }
         .nav-back {
             display: inline-block;
             margin-bottom: 20px;
-            color: #888;
+            color: #94a3b8;
         }
         .nav-back:hover {
-            color: #b794f6;
+            color: #8bd3fe;
         }
         
         /* Скрываем секции в зависимости от выбора языка (будет работать через JS) */
@@ -68,12 +70,12 @@
             <div class="col-lg-10">
                 <div class="content-box">
                     
-                    <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> ← Back to Main / Вернуться на главную</a>
+                    <a href="index.html" class="nav-back"><i class="fas fa-arrow-left me-2"></i> Back to Main / Вернуться на главную</a>
                     
                     <div class="text-center">
                         <div class="lang-switch">
                             <a href="#en" id="btn-en" class="active" onclick="switchLang('en')">English</a>
-                            <span class="text-muted">|</span>
+                            <span class="text-muted" style="color: #475569 !important;">|</span>
                             <a href="#ru" id="btn-ru" onclick="switchLang('ru')">Русский</a>
                         </div>
                     </div>
@@ -81,7 +83,7 @@
                     <!-- ENGLISH SECTION -->
                     <div id="section-en" class="policy-section active">
                         <h1>Privacy Policy</h1>
-                        <p class="text-muted mb-5">Last updated: May 3, 2026</p>
+                        <p class="text-muted mb-5" style="color: #64748b !important;">Last updated: May 3, 2026</p>
 
                         <p>This privacy policy applies to the mobile application <strong>"Industrial Journal"</strong> (Агрегатный журнал) and other software products created by <strong>InduLogix</strong> (hereinafter referred to as the "Developer"). This page informs you of our policies regarding the collection, use, and disclosure of data when you use our Application.</p>
 
@@ -134,7 +136,7 @@
                     <!-- RUSSIAN SECTION -->
                     <div id="section-ru" class="policy-section">
                         <h1>Политика конфиденциальности</h1>
-                        <p class="text-muted mb-5">Последнее обновление: 3 мая 2026 г.</p>
+                        <p class="text-muted mb-5" style="color: #64748b !important;">Последнее обновление: 3 мая 2026 г.</p>
 
                         <p>Данная политика конфиденциальности относится к мобильному приложению <strong>«Агрегатный журнал»</strong> (Industrial Journal) и другим программным продуктам, созданным <strong>InduLogix</strong> (далее — Разработчик). Эта страница информирует вас о правилах сбора, использования и раскрытия данных при использовании нашего Приложения.</p>
 
