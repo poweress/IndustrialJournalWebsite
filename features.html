@@ -8,70 +8,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            background-color: #020617; /* Глубокий темно-синий фон */
-            color: #e2e8f0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-        /* Новые цвета под логотип */
+        body { background-color: #020617; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; }
         .text-neon-blue { color: #8bd3fe; } 
         .text-accent-blue { color: #3b82f6; } 
+        .text-slate-300 { color: #cbd5e1; }
         .bg-neon-blue { background-color: #8bd3fe; color: #020617; }
         .bg-accent-blue { background-color: #3b82f6; color: #ffffff; }
-        
         .bg-dark-card { background-color: #0f172a; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
         
-        .feature-section {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-        }
+        .feature-section { padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.02); }
+        .feature-section:last-of-type { border-bottom: none; }
         
-        .feature-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
+        .feature-icon-wrapper { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
         
-        /* Заглушка для скриншотов (потом сможете заменить на реальные картинки) */
+        /* Улучшенная заглушка для скриншотов */
         .screenshot-placeholder {
             width: 100%;
-            height: 400px;
+            height: 450px;
             border-radius: 16px;
-            background: linear-gradient(45deg, #1e293b, #0f172a);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed #334155;
+            border: 2px dashed #334155;
             color: #64748b;
-            font-weight: bold;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        
-        .nav-back {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-back:hover { color: #8bd3fe; }
-        
-        .btn-custom {
-            background-color: #8bd3fe;
-            border: none;
-            color: #020617;
-            font-weight: bold;
             transition: all 0.3s ease;
         }
-        .btn-custom:hover {
-            background-color: #60a5fa;
-            color: #020617;
-            transform: translateY(-2px);
+        .screenshot-placeholder:hover {
+            border-color: #3b82f6;
+            color: #94a3b8;
         }
+        
+        .nav-back { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
+        .nav-back:hover { color: #8bd3fe; }
+        
+        .btn-custom { background-color: #8bd3fe; border: none; color: #020617; font-weight: bold; transition: all 0.3s ease; }
+        .btn-custom:hover { background-color: #60a5fa; color: #020617; transform: translateY(-2px); }
         
         footer { border-top: 1px solid #1e293b; }
     </style>
@@ -81,117 +54,216 @@
     <!-- Навигация -->
     <nav class="navbar navbar-dark bg-black py-3 border-bottom" style="border-color: #1e293b !important;">
         <div class="container d-flex align-items-center">
-            <a href="index.html" class="nav-back fw-bold">
-                <i class="fas fa-arrow-left me-2"></i> Вернуться на главную
-            </a>
+            <a href="index.html" class="nav-back fw-bold"><i class="fas fa-arrow-left me-2"></i> Вернуться на главную</a>
         </div>
     </nav>
 
-    <!-- Секция 1: Оффлайн (Сюда ведет карточка с главной) -->
+    <!-- 1. Оффлайн -->
     <section id="offline" class="feature-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="feature-icon-wrapper bg-accent-blue" style="color: #ffffff;">
-                        <i class="fas fa-wifi fa-3x"></i>
-                    </div>
+                    <div class="feature-icon-wrapper bg-accent-blue"><i class="fas fa-wifi fa-3x text-white"></i></div>
                     <h2 class="fw-bold text-white mb-4">Настоящий Offline-first</h2>
-                    <p class="fs-5 text-muted">Мы знаем, что в подвалах, электрощитовых и на отдаленных производственных участках часто нет интернета. Поэтому приложение спроектировано так, чтобы работать на 100% автономно.</p>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2"><i class="fas fa-check text-accent-blue me-2"></i> База данных хранится в зашифрованном виде на вашем устройстве.</li>
-                        <li class="mb-2"><i class="fas fa-check text-accent-blue me-2"></i> Добавляйте фотографии к дефектам прямо из цеха.</li>
-                        <li class="mb-2"><i class="fas fa-check text-accent-blue me-2"></i> Синхронизация с Telegram произойдет автоматически, как только выйдете в зону покрытия сети (используется Android WorkManager).</li>
+                    <p class="fs-5 text-slate-300">Приложение спроектировано так, чтобы работать на 100% автономно в цехах и подвалах без доступа к интернету.</p>
+                    <ul class="list-unstyled mt-4 text-slate-300">
+                        <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> База данных надежно хранится во внутренней памяти вашего устройства.</li>
+                        <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Добавляйте фотографии к дефектам прямо из цеха без задержек.</li>
+                        <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Отложенная отправка: отчеты в Telegram уйдут автоматически при появлении сети.</li>
                     </ul>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <!-- Чтобы добавить реальный скриншот, удалите div ниже и раскомментируйте тег img -->
-                    <!-- <img src="screen_offline.jpg" alt="Скриншот Оффлайн работы" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-mobile-alt fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Оффлайн работа</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция 2: Иерархия (Сюда ведет карточка с главной) -->
+    <!-- 2. Иерархия -->
     <section id="hierarchy" class="feature-section bg-dark-card">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="feature-icon-wrapper bg-neon-blue" style="color: #020617;">
-                        <i class="fas fa-sitemap fa-3x"></i>
-                    </div>
+                    <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-sitemap fa-3x text-dark"></i></div>
                     <h2 class="fw-bold text-white mb-4">Жесткая иерархия объектов</h2>
-                    <p class="fs-5 text-muted">Забудьте про хаос в записях. Структурируйте ваше производство по строгой логике, чтобы находить любой агрегат за пару секунд.</p>
+                    <p class="fs-5 text-slate-300">Забудьте про хаос в записях. Находите любой нужный узел за пару секунд благодаря строгой логике построения базы.</p>
                     <div class="p-4 rounded-4 mt-4" style="background-color: #020617; border: 1px solid #1e293b;">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-industry text-neon-blue me-3"></i> <strong>Предприятие</strong> (Главный завод)
-                        </div>
-                        <div class="d-flex align-items-center mb-3 ms-4">
-                            <i class="fas fa-warehouse text-accent-blue me-3"></i> <strong>Цех</strong> (Участок производства)
-                        </div>
-                        <div class="d-flex align-items-center mb-3 ms-5">
-                            <i class="fas fa-bolt text-warning me-3"></i> <strong>Подстанция / ЩСУ</strong> (Опционально)
-                        </div>
-                        <div class="d-flex align-items-center ms-5 ps-4">
-                            <i class="fas fa-cogs text-info me-3"></i> <strong>Агрегат</strong> (Насос, Конвейер, Вентилятор)
-                        </div>
+                        <div class="d-flex align-items-center mb-3"><i class="fas fa-industry text-neon-blue me-3"></i> <strong>Предприятие</strong> (Главный завод)</div>
+                        <div class="d-flex align-items-center mb-3 ms-4"><i class="fas fa-warehouse text-accent-blue me-3"></i> <strong>Цех</strong> (Участок производства)</div>
+                        <div class="d-flex align-items-center mb-3 ms-5"><i class="fas fa-bolt text-warning me-3"></i> <strong>Подстанция / ЩСУ</strong> (Опционально)</div>
+                        <div class="d-flex align-items-center ms-5 ps-4"><i class="fas fa-cogs text-info me-3"></i> <strong>Агрегат</strong> (Насос, Конвейер, Вентилятор)</div>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-folder-tree fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Дерево объектов</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция 3: Telegram (Сюда ведет карточка с главной) -->
+    <!-- 3. План-график -->
+    <section id="planner" class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-accent-blue"><i class="fas fa-calendar-alt fa-3x text-white"></i></div>
+                    <h2 class="fw-bold text-white mb-4">Интеллектуальный План-график</h2>
+                    <p class="fs-5 text-slate-300">Распределяйте задачи по дням месяца и контролируйте их выполнение с помощью удобного календаря.</p>
+                    <ul class="list-unstyled mt-4 text-slate-300">
+                        <li class="mb-3"><i class="fas fa-layer-group text-accent-blue me-2"></i> Задачи автоматически группируются по цехам для удобства чтения.</li>
+                        <li class="mb-3"><i class="fas fa-tasks text-accent-blue me-2"></i> Возможность массового создания задач сразу на несколько подстанций.</li>
+                        <li class="mb-3"><i class="fas fa-history text-accent-blue me-2"></i> Система «долгов»: невыполненные задачи за прошлые дни легко переносятся на сегодня.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-calendar-check fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: План-график</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Аналитика -->
+    <section id="analytics" class="feature-section bg-dark-card">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-chart-pie fa-3x text-dark"></i></div>
+                    <h2 class="fw-bold text-white mb-4">Мощная Аналитика</h2>
+                    <p class="fs-5 text-slate-300">Контролируйте производственные показатели прямо с экрана телефона в режиме реального времени.</p>
+                    <ul class="list-unstyled mt-4 text-slate-300">
+                        <li class="mb-3"><i class="fas fa-percentage text-neon-blue me-2"></i> Подсчет глобального процента охвата оборудования Актами ТО (ППР).</li>
+                        <li class="mb-3"><i class="fas fa-chart-bar text-neon-blue me-2"></i> Гистограммы суммарной мощности двигателей по каждому цеху.</li>
+                        <li class="mb-3"><i class="fas fa-users text-neon-blue me-2"></i> Рейтинг активности персонала (кто зафиксировал больше всего дефектов).</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Дашборд аналитики</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Telegram -->
     <section id="telegram" class="feature-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="feature-icon-wrapper bg-accent-blue" style="color: #ffffff;">
-                        <i class="fab fa-telegram-plane fa-3x"></i>
-                    </div>
+                    <div class="feature-icon-wrapper bg-accent-blue"><i class="fab fa-telegram-plane fa-3x text-white"></i></div>
                     <h2 class="fw-bold text-white mb-4">Интеграция с Telegram</h2>
-                    <p class="fs-5 text-muted">Приложение само напишет отчет начальству! Подключите любого Telegram-бота и настройте автоматическую выгрузку данных.</p>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-3"><i class="fas fa-bell text-accent-blue me-2"></i> <strong>Аварии:</strong> Мгновенные уведомления в чат (с фото и описанием) при фиксации дефекта.</li>
-                        <li class="mb-3"><i class="fas fa-calendar-check text-accent-blue me-2"></i> <strong>Планы и Итоги:</strong> Авто-отправка утреннего плана работ и вечерних итогов выполнения (Пн-Пт).</li>
-                        <li class="mb-3"><i class="fas fa-database text-accent-blue me-2"></i> <strong>Бэкапы:</strong> Сброс файла резервной копии базы данных прямо в защищенный чат.</li>
+                    <p class="fs-5 text-slate-300">Приложение само напишет отчет! Подключите бота и настройте автоматическую выгрузку данных.</p>
+                    <ul class="list-unstyled mt-4 text-slate-300">
+                        <li class="mb-3"><i class="fas fa-exclamation-triangle text-accent-blue me-2"></i> <strong>Аварии:</strong> Мгновенные уведомления с фото при фиксации дефекта.</li>
+                        <li class="mb-3"><i class="fas fa-clock text-accent-blue me-2"></i> <strong>Авто-отчеты:</strong> Фоновая отправка утреннего плана работ и вечерних итогов.</li>
+                        <li class="mb-3"><i class="fas fa-comments text-accent-blue me-2"></i> <strong>Форумы:</strong> Поддержка сортировки сообщений по темам (Топикам) внутри группы.</li>
                     </ul>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-paper-plane fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Отчеты в Telegram</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция 4: PDF (Сюда ведет карточка с главной) -->
-    <section id="pdf" class="feature-section bg-dark-card border-bottom-0">
+    <!-- 6. PDF -->
+    <section id="pdf" class="feature-section bg-dark-card">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="feature-icon-wrapper bg-neon-blue" style="color: #020617;">
-                        <i class="fas fa-file-pdf fa-3x"></i>
-                    </div>
+                    <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-file-pdf fa-3x text-dark"></i></div>
                     <h2 class="fw-bold text-white mb-4">Генерация красивых PDF</h2>
-                    <p class="fs-5 text-muted">Вам больше не нужно переписывать данные в Word. Приложение генерирует готовые к печати документы.</p>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2"><i class="fas fa-file-alt text-neon-blue me-2"></i> <strong>Журнал событий:</strong> Сводка всех дефектов и ремонтов за выбранный период.</li>
-                        <li class="mb-2"><i class="fas fa-list-alt text-neon-blue me-2"></i> <strong>Спецификация:</strong> Паспорт цеха с полным составом оборудования, мощностью двигателей и параметрами ПЧ.</li>
-                        <li class="mb-2"><i class="fas fa-clipboard-check text-neon-blue me-2"></i> <strong>Акты ТО:</strong> Автоматически заполненные бланки планово-предупредительных ремонтов с вашей подписью.</li>
+                    <p class="fs-5 text-slate-300">Больше не нужно переписывать данные в Word. Генерируйте готовые к печати документы.</p>
+                    <ul class="list-unstyled mt-4 text-slate-300">
+                        <li class="mb-3"><i class="fas fa-book text-neon-blue me-2"></i> Сводный журнал событий и дефектов за выбранный период.</li>
+                        <li class="mb-3"><i class="fas fa-clipboard-list text-neon-blue me-2"></i> Паспортная спецификация цеха с полным составом узлов.</li>
+                        <li class="mb-3"><i class="fas fa-file-signature text-neon-blue me-2"></i> Заполненные Акты ТО с результатами проверок (по вашим чек-листам).</li>
                     </ul>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-file-invoice fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Готовый PDF акт</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Excel -->
+    <section id="excel" class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-accent-blue"><i class="fas fa-file-excel fa-3x text-white"></i></div>
+                    <h2 class="fw-bold text-white mb-4">Импорт из Excel</h2>
+                    <p class="fs-5 text-slate-300">Быстрый старт для новых пользователей. Загрузите сотни агрегатов разом с помощью специального шаблона.</p>
+                    <p class="text-slate-300">Приложение автоматически распознает структуру и создаст необходимые Предприятия, Цеха и Подстанции, раскидав оборудование по своим местам.</p>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-table fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Экран импорта</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Бэкапы -->
+    <section id="data" class="feature-section bg-dark-card">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-database fa-3x text-dark"></i></div>
+                    <h2 class="fw-bold text-white mb-4">Надежное хранение данных</h2>
+                    <p class="fs-5 text-slate-300">Управляйте своими базами данных как профессионал.</p>
+                    <ul class="list-unstyled mt-4 text-slate-300">
+                        <li class="mb-3"><i class="fas fa-save text-neon-blue me-2"></i> <strong>Бэкапы:</strong> Сохраняйте базу в единый файл-архив <code>.ijb</code> локально или отправляйте прямо в Telegram.</li>
+                        <li class="mb-3"><i class="fas fa-compress-arrows-alt text-neon-blue me-2"></i> <strong>Слияние БД (PRO):</strong> Командная работа стала реальностью. Импортируйте базу коллеги — приложение само объединит новые записи без дубликатов!</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-hdd fa-4x mb-3 opacity-50"></i>
+                            <p class="mb-0 fw-bold">Скриншот: Управление БД</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Подвал (с кнопкой скачивания и почтой) -->
-    <footer class="py-5 bg-black text-center border-top">
+    <footer class="py-5 bg-black text-center border-top" style="border-color: #1e293b !important;">
         <div class="container">
             <h3 class="text-white mb-4">Готовы навести порядок в цеху?</h3>
             <a href="https://play.google.com/store/apps/details?id=com.indulogix.industrialjournal" target="_blank" class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow mb-5">
