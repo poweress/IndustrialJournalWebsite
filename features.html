@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Возможности - Промышленный журнал АСУТП</title>
+    <!-- Подключаем Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #020617; /* Глубокий темно-синий фон */
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        /* Новые цвета под логотип */
+        .text-neon-blue { color: #8bd3fe; } 
+        .text-accent-blue { color: #3b82f6; } 
+        .bg-neon-blue { background-color: #8bd3fe; color: #020617; }
+        .bg-accent-blue { background-color: #3b82f6; color: #ffffff; }
+        
+        .bg-dark-card { background-color: #0f172a; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
+        
+        .feature-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+        }
+        
+        .feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        
+        /* Заглушка для скриншотов (потом сможете заменить на реальные картинки) */
+        .screenshot-placeholder {
+            width: 100%;
+            height: 400px;
+            border-radius: 16px;
+            background: linear-gradient(45deg, #1e293b, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #334155;
+            color: #64748b;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .nav-back {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: #8bd3fe; }
+        
+        .btn-custom {
+            background-color: #8bd3fe;
+            border: none;
+            color: #020617;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #60a5fa;
+            color: #020617;
+            transform: translateY(-2px);
+        }
+        
+        footer { border-top: 1px solid #1e293b; }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-dark bg-black py-3 border-bottom" style="border-color: #1e293b !important;">
+        <div class="container d-flex align-items-center">
+            <a href="index.html" class="nav-back fw-bold">
+                <i class="fas fa-arrow-left me-2"></i> Вернуться на главную
+            </a>
+        </div>
+    </nav>
+
+    <!-- Секция 1: Оффлайн (Сюда ведет карточка с главной) -->
+    <section id="offline" class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-accent-blue" style="color: #ffffff;">
+                        <i class="fas fa-wifi fa-3x"></i>
+                    </div>
+                    <h2 class="fw-bold text-white mb-4">Настоящий Offline-first</h2>
+                    <p class="fs-5 text-muted">Мы знаем, что в подвалах, электрощитовых и на отдаленных производственных участках часто нет интернета. Поэтому приложение спроектировано так, чтобы работать на 100% автономно.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="fas fa-check text-accent-blue me-2"></i> База данных хранится в зашифрованном виде на вашем устройстве.</li>
+                        <li class="mb-2"><i class="fas fa-check text-accent-blue me-2"></i> Добавляйте фотографии к дефектам прямо из цеха.</li>
+                        <li class="mb-2"><i class="fas fa-check text-accent-blue me-2"></i> Синхронизация с Telegram произойдет автоматически, как только выйдете в зону покрытия сети (используется Android WorkManager).</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <!-- Чтобы добавить реальный скриншот, удалите div ниже и раскомментируйте тег img -->
+                    <!-- <img src="screen_offline.jpg" alt="Скриншот Оффлайн работы" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
+                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 2: Иерархия (Сюда ведет карточка с главной) -->
+    <section id="hierarchy" class="feature-section bg-dark-card">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-neon-blue" style="color: #020617;">
+                        <i class="fas fa-sitemap fa-3x"></i>
+                    </div>
+                    <h2 class="fw-bold text-white mb-4">Жесткая иерархия объектов</h2>
+                    <p class="fs-5 text-muted">Забудьте про хаос в записях. Структурируйте ваше производство по строгой логике, чтобы находить любой агрегат за пару секунд.</p>
+                    <div class="p-4 rounded-4 mt-4" style="background-color: #020617; border: 1px solid #1e293b;">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-industry text-neon-blue me-3"></i> <strong>Предприятие</strong> (Главный завод)
+                        </div>
+                        <div class="d-flex align-items-center mb-3 ms-4">
+                            <i class="fas fa-warehouse text-accent-blue me-3"></i> <strong>Цех</strong> (Участок производства)
+                        </div>
+                        <div class="d-flex align-items-center mb-3 ms-5">
+                            <i class="fas fa-bolt text-warning me-3"></i> <strong>Подстанция / ЩСУ</strong> (Опционально)
+                        </div>
+                        <div class="d-flex align-items-center ms-5 ps-4">
+                            <i class="fas fa-cogs text-info me-3"></i> <strong>Агрегат</strong> (Насос, Конвейер, Вентилятор)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 3: Telegram (Сюда ведет карточка с главной) -->
+    <section id="telegram" class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-accent-blue" style="color: #ffffff;">
+                        <i class="fab fa-telegram-plane fa-3x"></i>
+                    </div>
+                    <h2 class="fw-bold text-white mb-4">Интеграция с Telegram</h2>
+                    <p class="fs-5 text-muted">Приложение само напишет отчет начальству! Подключите любого Telegram-бота и настройте автоматическую выгрузку данных.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3"><i class="fas fa-bell text-accent-blue me-2"></i> <strong>Аварии:</strong> Мгновенные уведомления в чат (с фото и описанием) при фиксации дефекта.</li>
+                        <li class="mb-3"><i class="fas fa-calendar-check text-accent-blue me-2"></i> <strong>Планы и Итоги:</strong> Авто-отправка утреннего плана работ и вечерних итогов выполнения (Пн-Пт).</li>
+                        <li class="mb-3"><i class="fas fa-database text-accent-blue me-2"></i> <strong>Бэкапы:</strong> Сброс файла резервной копии базы данных прямо в защищенный чат.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 4: PDF (Сюда ведет карточка с главной) -->
+    <section id="pdf" class="feature-section bg-dark-card border-bottom-0">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="feature-icon-wrapper bg-neon-blue" style="color: #020617;">
+                        <i class="fas fa-file-pdf fa-3x"></i>
+                    </div>
+                    <h2 class="fw-bold text-white mb-4">Генерация красивых PDF</h2>
+                    <p class="fs-5 text-muted">Вам больше не нужно переписывать данные в Word. Приложение генерирует готовые к печати документы.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="fas fa-file-alt text-neon-blue me-2"></i> <strong>Журнал событий:</strong> Сводка всех дефектов и ремонтов за выбранный период.</li>
+                        <li class="mb-2"><i class="fas fa-list-alt text-neon-blue me-2"></i> <strong>Спецификация:</strong> Паспорт цеха с полным составом оборудования, мощностью двигателей и параметрами ПЧ.</li>
+                        <li class="mb-2"><i class="fas fa-clipboard-check text-neon-blue me-2"></i> <strong>Акты ТО:</strong> Автоматически заполненные бланки планово-предупредительных ремонтов с вашей подписью.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="screenshot-placeholder">[Место для скриншота]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал (с кнопкой скачивания и почтой) -->
+    <footer class="py-5 bg-black text-center border-top">
+        <div class="container">
+            <h3 class="text-white mb-4">Готовы навести порядок в цеху?</h3>
+            <a href="https://play.google.com/store/apps/details?id=com.indulogix.industrialjournal" target="_blank" class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow mb-5">
+                <i class="fab fa-google-play me-2"></i> Скачать в Google Play
+            </a>
+            
+            <p class="text-muted mb-2">&copy; 2026 Промышленный журнал АСУТП. InduLogix.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="privacy.html" class="text-neon-blue text-decoration-none small">Политика безопасности</a>
+                <span class="text-muted small">|</span>
+                <a href="mailto:devinforep@gmail.com" class="text-neon-blue text-decoration-none small">Связаться с разработчиком</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
