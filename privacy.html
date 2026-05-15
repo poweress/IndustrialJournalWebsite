@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Политика конфиденциальности - Industrial Journal</title>
+    <!-- Подключаем Bootstrap для адаптивности -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        .text-neon-purple { color: #b794f6; }
+        .text-neon-green { color: #4ade80; }
+        .content-box {
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(183, 148, 246, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: #ffffff; font-weight: 800; margin-bottom: 0.5rem; }
+        h2 { color: #b794f6; font-size: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 35px; font-weight: 700; }
+        h3 { color: #ffffff; font-size: 1.2rem; margin-top: 20px; font-weight: 600; }
+        p, li { color: #cccccc; }
+        a { color: #4ade80; text-decoration: none; transition: color 0.2s; }
+        a:hover { text-decoration: underline; color: #22c55e; }
+        
+        .lang-switch {
+            background-color: #2a2a2a;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .lang-switch a {
+            color: #888;
+            font-weight: 600;
+        }
+        .lang-switch a:hover, .lang-switch a.active {
+            color: #b794f6;
+            text-decoration: none;
+        }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #888;
+        }
+        .nav-back:hover {
+            color: #b794f6;
+        }
+        
+        /* Скрываем секции в зависимости от выбора языка (будет работать через JS) */
+        .policy-section { display: none; }
+        .policy-section.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="content-box">
+                    
+                    <a href="index.html" class="nav-back"><i class="fas fa-arrow-left"></i> ← Back to Main / Вернуться на главную</a>
+                    
+                    <div class="text-center">
+                        <div class="lang-switch">
+                            <a href="#en" id="btn-en" class="active" onclick="switchLang('en')">English</a>
+                            <span class="text-muted">|</span>
+                            <a href="#ru" id="btn-ru" onclick="switchLang('ru')">Русский</a>
+                        </div>
+                    </div>
+
+                    <!-- ENGLISH SECTION -->
+                    <div id="section-en" class="policy-section active">
+                        <h1>Privacy Policy</h1>
+                        <p class="text-muted mb-5">Last updated: May 3, 2026</p>
+
+                        <p>This privacy policy applies to the mobile application <strong>"Industrial Journal"</strong> (Агрегатный журнал) and other software products created by <strong>InduLogix</strong> (hereinafter referred to as the "Developer"). This page informs you of our policies regarding the collection, use, and disclosure of data when you use our Application.</p>
+
+                        <h2>1. General Provisions</h2>
+                        <p>The Application is designed as a professional tool for technical accounting, maintenance logging, and equipment monitoring. By using the Application, you agree to the terms of this policy.</p>
+
+                        <h2>2. Data Collection and Storage (Local-First Approach)</h2>
+                        <p>We prioritize the privacy of your data. The Application is built strictly on a "Local-First" principle:</p>
+                        <ul>
+                            <li><strong>No Personal Data Collection:</strong> The Developer does not collect, access, or store any personal information on its servers.</li>
+                            <li><strong>Local Storage:</strong> All data you enter in the Application (equipment parameters, maintenance logs, substation data, profile names, etc.) is stored exclusively in a local database (Room DB) on your mobile device.</li>
+                            <li><strong>No Cloud Synchronization:</strong> The Application does not automatically sync your logs with any cloud storage or third-party servers. Your data remains completely under your physical control.</li>
+                        </ul>
+
+                        <h2>3. Third-Party Services and Analytics</h2>
+                        <p>To ensure stable operation, the Application uses the following third-party services:</p>
+                        <ul>
+                            <li><strong>Google Play Services:</strong> Used for in-app purchases (Google Play Billing), app distribution, updates, and basic Android functionality.</li>
+                            <li><strong>Firebase Crashlytics:</strong> Used exclusively to collect anonymous crash reports if the app unexpectedly closes. This data contains only technical information (device model, OS version, line of code with the error) and helps us quickly identify and fix bugs.</li>
+                            <li><strong>No Advertising ID (AD_ID) Collection:</strong> The Application does not collect and deliberately blocks the collection of the device's Advertising ID. We do not share your data with third-party companies, nor do we use it to show or personalize ads.</li>
+                        </ul>
+                        <p>You can review the privacy policy of the service provider here: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></p>
+
+                        <h2>4. Device Permissions</h2>
+                        <p>The Application may request access to device features solely to implement local functionality:</p>
+                        <ul>
+                            <li><strong>Camera and Gallery:</strong> Requested only to attach photos to maintenance logs or equipment cards. Images are saved in the device's local memory and are never automatically uploaded to the internet.</li>
+                            <li><strong>Storage:</strong> Used to save generated PDF reports, export Excel files, and to create/restore backup files (.ijb).</li>
+                            <li><strong>Notifications:</strong> Used to inform the user about background processes (e.g., successful background report sending).</li>
+                            <li><strong>Network / Background Processing:</strong> Used exclusively for sending generated reports or backups via your configured Telegram bot. The app may run scheduled background tasks (via Android WorkManager) solely to send automated maintenance reports to your Telegram chat.</li>
+                        </ul>
+
+                        <h2>5. Telegram Integration</h2>
+                        <p>The Application provides the ability to automatically or manually send reports and backups to the Telegram messenger via the Telegram API. For this feature to work, you independently provide your Bot Token and Chat ID. The Application uses this data <strong>only</strong> to execute HTTPS requests to the official Telegram API (<code>api.telegram.org</code>). Your access keys are stored locally on your device and are not transmitted anywhere else.</p>
+
+                        <h2>6. Security</h2>
+                        <p>InduLogix values your trust. However, since all data is stored locally (except for direct sending to your own Telegram chat), the security of your information directly depends on the security of your device. We highly recommend using standard protection measures (PIN code, biometrics, or device encryption). The Developer is not responsible for data loss in the event of physical access by unauthorized persons to your smartphone.</p>
+
+                        <h2>7. User Rights</h2>
+                        <p>Because we do not store your data on our servers, you have complete control over your information. You can modify, export, or delete your data at any time directly within the Application or by clearing the Application's data/cache in your device settings.</p>
+
+                        <h2>8. Changes to This Privacy Policy</h2>
+                        <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Any updates become effective immediately upon their publication on this page.</p>
+
+                        <h2>9. Contact Us</h2>
+                        <p>If you have any questions or suggestions regarding this Privacy Policy, please contact us:<br>
+                        <strong>InduLogix Email:</strong> <a href="mailto:devinforep@gmail.com">devinforep@gmail.com</a></p>
+                    </div>
+
+                    <!-- RUSSIAN SECTION -->
+                    <div id="section-ru" class="policy-section">
+                        <h1>Политика конфиденциальности</h1>
+                        <p class="text-muted mb-5">Последнее обновление: 3 мая 2026 г.</p>
+
+                        <p>Данная политика конфиденциальности относится к мобильному приложению <strong>«Агрегатный журнал»</strong> (Industrial Journal) и другим программным продуктам, созданным <strong>InduLogix</strong> (далее — Разработчик). Эта страница информирует вас о правилах сбора, использования и раскрытия данных при использовании нашего Приложения.</p>
+
+                        <h2>1. Общие положения</h2>
+                        <p>Приложение разработано как профессиональный инструмент для технического учета, ведения журналов технического обслуживания и мониторинга оборудования. Используя Приложение, вы соглашаетесь с условиями данной политики.</p>
+
+                        <h2>2. Сбор и хранение данных (Принцип Local-First)</h2>
+                        <p>Мы уделяем приоритетное внимание конфиденциальности ваших данных. Приложение построено на принципе «Local-First»:</p>
+                        <ul>
+                            <li><strong>Отсутствие сбора персональных данных:</strong> Разработчик не собирает, не имеет доступа и не хранит никакую личную информацию на своих серверах.</li>
+                            <li><strong>Локальное хранение:</strong> Все данные, которые вы вводите в Приложении (параметры оборудования, журналы обслуживания, данные подстанций, ФИО в профиле и т. д.), хранятся исключительно в локальной базе данных (Room DB) на вашем мобильном устройстве.</li>
+                            <li><strong>Отсутствие синхронизации:</strong> Приложение автоматически не синхронизирует ваши журналы с какими-либо облачными хранилищами или сторонними серверами. Ваши данные остаются под вашим полным физическим контролем.</li>
+                        </ul>
+
+                        <h2>3. Сторонние сервисы и аналитика</h2>
+                        <p>Для обеспечения стабильной работы Приложение использует следующие сторонние сервисы:</p>
+                        <ul>
+                            <li><strong>Google Play Services:</strong> Используются для внутренних покупок (Google Play Billing), распространения приложения, обновлений и базовой функциональности Android.</li>
+                            <li><strong>Firebase Crashlytics:</strong> Используется исключительно для сбора анонимных отчетов об ошибках (краш-логов), если приложение внезапно закрывается. Эти данные содержат только техническую информацию (модель устройства, версия ОС, строка кода с ошибкой) и помогают нам оперативно чинить баги.</li>
+                            <li><strong>Отказ от рекламы (AD_ID):</strong> Приложение не собирает и намеренно блокирует сбор Рекламного идентификатора устройства (Advertising ID). Мы не передаем ваши данные сторонним компаниям и не используем их для показа или персонализации рекламы.</li>
+                        </ul>
+                        <p>Вы можете ознакомиться с политикой конфиденциальности поставщика сервисов здесь: <a href="https://policies.google.com/privacy" target="_blank">Политика конфиденциальности Google</a></p>
+
+                        <h2>4. Разрешения устройства</h2>
+                        <p>Приложение может запрашивать доступы к функциям устройства исключительно для реализации локального функционала:</p>
+                        <ul>
+                            <li><strong>Камера и Галерея:</strong> Запрашивается только для прикрепления фотографий к журналам обслуживания или карточкам оборудования. Снимки сохраняются в памяти устройства и никогда автоматически не выгружаются в интернет.</li>
+                            <li><strong>Память (Хранилище):</strong> Используется для сохранения сгенерированных PDF-отчетов, выгрузки Excel-таблиц и создания/восстановления файлов резервных копий (бэкапов).</li>
+                            <li><strong>Уведомления:</strong> Используются для информирования пользователя о фоновых процессах (например, об успешной фоновой отправке отчета).</li>
+                            <li><strong>Сеть и Фоновая работа:</strong> Используется исключительно для отправки сформированных отчетов через указанного вами Telegram-бота. Приложение может запускать фоновые задачи по расписанию (через Android WorkManager) для автоматической отправки сводок ППР в ваш чат.</li>
+                        </ul>
+
+                        <h2>5. Интеграция с Telegram</h2>
+                        <p>Приложение предоставляет возможность автоматической или ручной отправки отчетов и резервных копий в мессенджер Telegram через Telegram API. Для работы этой функции вы самостоятельно предоставляете Токен вашего бота и ID чата. Приложение использует эти данные <strong>только</strong> для выполнения HTTPS-запросов к официальному API Telegram (<code>api.telegram.org</code>). Ваши ключи доступа сохраняются локально на вашем устройстве в зашифрованном виде и никуда более не передаются.</p>
+
+                        <h2>6. Безопасность</h2>
+                        <p>InduLogix ценит ваше доверие. Однако, поскольку все данные хранятся локально (за исключением прямой отправки в ваш собственный Telegram-чат), безопасность вашей информации напрямую зависит от безопасности вашего устройства. Мы рекомендуем использовать стандартные меры защиты (PIN-код, биометрия или шифрование устройства). Разработчик не несет ответственности за утерю данных в случае физического доступа посторонних лиц к вашему смартфону.</p>
+
+                        <h2>7. Права пользователя</h2>
+                        <p>Поскольку мы не храним ваши данные на своих серверах, вы имеете полный контроль над своей информацией. Вы можете изменить, экспортировать или удалить свои данные в любое время непосредственно в Приложении или путем очистки данных/кэша Приложения в настройках устройства.</p>
+
+                        <h2>8. Изменения в политике конфиденциальности</h2>
+                        <p>Мы можем время от времени обновлять нашу Политику конфиденциальности. Рекомендуется периодически просматривать эту страницу на предмет изменений. Любые обновления вступают в силу немедленно после их публикации на этой странице.</p>
+
+                        <h2>9. Контакты</h2>
+                        <p>Если у вас есть вопросы или предложения по поводу данной Политики конфиденциальности, свяжитесь с нами:<br>
+                        <strong>InduLogix Email:</strong> <a href="mailto:devinforep@gmail.com">devinforep@gmail.com</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Простой скрипт для переключения языков -->
+    <script>
+        function switchLang(lang) {
+            // Убираем активный класс со всех кнопок и секций
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-ru').classList.remove('active');
+            document.getElementById('section-en').classList.remove('active');
+            document.getElementById('section-ru').classList.remove('active');
+            
+            // Добавляем активный класс выбранному языку
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.getElementById('section-' + lang).classList.add('active');
+        }
+        
+        // Автоматически включаем русский язык, если язык браузера русский
+        if (navigator.language.startsWith('ru')) {
+            switchLang('ru');
+        }
+    </script>
+</body>
+</html>
