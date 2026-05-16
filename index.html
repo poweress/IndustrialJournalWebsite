@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Промышленный журнал АСУТП</title>
+    <title>Промышленный журнал АСУТП / Industrial Journal</title>
     <!-- Подключаем Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +15,7 @@
         }
         .text-neon-blue { color: #8bd3fe; } 
         .text-accent-blue { color: #3b82f6; } 
-        .text-slate-300 { color: #cbd5e1 !important; } /* Специальный светлый текст для читаемости */
+        .text-slate-300 { color: #cbd5e1 !important; } 
         
         .bg-neon-blue { background-color: #8bd3fe; color: #020617; }
         .bg-accent-blue { background-color: #3b82f6; color: #ffffff; }
@@ -62,7 +62,7 @@
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
         }
         .hero-section {
-            padding: 80px 0;
+            padding: 60px 0 80px;
             background: linear-gradient(180deg, #1e293b 0%, #020617 100%);
         }
         .manual-section {
@@ -80,90 +80,163 @@
             margin-bottom: 24px;
             object-fit: cover;
         }
+
+        /* Переключатель языков */
+        .lang-switch {
+            background-color: #1e293b;
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: inline-flex;
+            gap: 12px;
+            border: 1px solid #334155;
+        }
+        .lang-switch a {
+            color: #94a3b8;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .lang-switch a:hover, .lang-switch a.active {
+            color: #8bd3fe;
+        }
+
+        /* ИСПРАВЛЕННАЯ Логика скрытия/показа секций языков */
+        .lang-section { display: none !important; }
+        .lang-section.active { display: block !important; }
+        span.lang-section.active { display: inline !important; }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Главный экран -->
+    <!-- Верхняя панель с переключателем языков -->
+    <div class="container text-center mt-4">
+        <div class="lang-switch">
+            <a href="#ru" id="btn-ru" class="active" onclick="switchLang('ru')">Русский</a>
+            <span class="text-muted" style="color: #475569 !important;">|</span>
+            <a href="#en" id="btn-en" onclick="switchLang('en')">English</a>
+        </div>
+    </div>
+
+    <!-- Шапка -->
     <header class="hero-section text-center">
         <div class="container">
-            <img src="logo.png" alt="Логотип" class="app-logo" onerror="this.src='https://via.placeholder.com/140/8bd3fe/020617?text=LOGO'">
-            <h1 class="display-4 fw-bold text-white mb-3">Промышленный журнал АСУТП</h1>
-            <p class="lead mb-5 mx-auto text-slate-300" style="max-width: 700px;">Профессиональный инструмент инженера. Учет оборудования, планирование ТО, аналитика и авто-отчеты в Telegram.</p>
+            <!-- Исправлено на logo.png -->
+            <img src="logo.jpg" alt="Логотип" class="app-logo" onerror="this.src='https://via.placeholder.com/140/8bd3fe/020617?text=LOGO'">
+            
+            <div class="lang-section lang-ru active">
+                <h1 class="display-4 fw-bold text-white mb-3">Промышленный журнал АСУТП</h1>
+                <p class="lead mb-5 mx-auto text-slate-300" style="max-width: 700px;">Профессиональный инструмент инженера. Учет оборудования, планирование ТО, аналитика и авто-отчеты в Telegram.</p>
+            </div>
+
+            <div class="lang-section lang-en">
+                <h1 class="display-4 fw-bold text-white mb-3">Industrial Journal Automation</h1>
+                <p class="lead mb-5 mx-auto text-slate-300" style="max-width: 700px;">A professional tool for engineers. Equipment tracking, maintenance planning, analytics, and automated Telegram reports.</p>
+            </div>
             
             <a href="https://play.google.com/store/apps/details?id=com.indulogix.industrialjournal" target="_blank" class="btn btn-custom btn-lg px-5 py-3 rounded-pill shadow">
-                <i class="fab fa-google-play me-2"></i> Скачать в Google Play
+                <i class="fab fa-google-play me-2"></i> 
+                <span class="lang-section lang-ru active">Скачать в Google Play</span>
+                <span class="lang-section lang-en">Download on Google Play</span>
             </a>
+
+            <!-- ========================================================================= -->
+            <!-- МЕСТО ДЛЯ ВСТАВКИ ГЛАВНОГО СКРИНШОТА ПРИЛОЖЕНИЯ В ШАПКУ (ОПЦИОНАЛЬНО) -->
+            <!-- Ключевое слово для поиска: SCREENSHOT_HERO -->
+            <!-- 
+            <div class="mt-5">
+                <img src="main-screen.jpg" alt="App Preview" class="img-fluid rounded-4 shadow border border-secondary" style="max-width: 320px;">
+            </div>
+            -->
+            <!-- ========================================================================= -->
+
         </div>
     </header>
 
-    <!-- Описание функционала (Теперь 8 карточек!) -->
     <section class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5 text-white">Все возможности в одном приложении</h2>
+            
+            <h2 class="text-center fw-bold mb-5 text-white lang-section lang-ru active">Все возможности в одном приложении</h2>
+            <h2 class="text-center fw-bold mb-5 text-white lang-section lang-en">All features in one application</h2>
+            
             <div class="row g-4">
                 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#offline" class="feature-card text-center">
                         <i class="fas fa-wifi fa-3x text-accent-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Offline-first</h4>
-                        <p class="text-slate-300 small mb-0">Полная функциональность в подвалах и цехах без связи. База данных всегда под рукой.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Offline-first</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Offline-first</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Полная функциональность в подвалах и цехах без связи. База данных всегда под рукой.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Full functionality in basements and workshops without cellular network. Database is always at hand.</p>
                     </a>
                 </div>
                 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#hierarchy" class="feature-card text-center">
                         <i class="fas fa-sitemap fa-3x text-neon-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Иерархия объектов</h4>
-                        <p class="text-slate-300 small mb-0">Строгая структура: Предприятие ➔ Цех ➔ Подстанция ➔ Агрегат. Быстрый поиск узлов.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Иерархия объектов</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Object Hierarchy</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Строгая структура: Предприятие ➔ Цех ➔ Подстанция ➔ Агрегат. Быстрый поиск узлов.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Strict structure: Enterprise ➔ Shop ➔ Substation ➔ Unit. Fast asset search.</p>
                     </a>
                 </div>
                 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#planner" class="feature-card text-center">
                         <i class="fas fa-calendar-alt fa-3x text-accent-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">План-график</h4>
-                        <p class="text-slate-300 small mb-0">Умный календарь для планирования ремонтов и обходов с группировкой по цехам.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">План-график</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Schedule & Planner</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Умный календарь для планирования ремонтов и обходов с группировкой по цехам.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Smart calendar for scheduling maintenance and inspections grouped by workshops.</p>
                     </a>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#analytics" class="feature-card text-center">
                         <i class="fas fa-chart-pie fa-3x text-neon-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Аналитика</h4>
-                        <p class="text-slate-300 small mb-0">Наглядные дашборды: процент выполнения ППР, статус агрегатов и активность персонала.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Аналитика</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Analytics</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Наглядные дашборды: процент выполнения ППР, статус агрегатов и активность персонала.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Visual dashboards: PM compliance rate, equipment statuses, and personnel activity.</p>
                     </a>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#telegram" class="feature-card text-center">
                         <i class="fab fa-telegram-plane fa-3x text-accent-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Telegram-бот</h4>
-                        <p class="text-slate-300 small mb-0">Автоматическая отправка утренних планов, вечерних итогов и тревожных уведомлений об авариях.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Telegram-бот</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Telegram Bot</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Автоматическая отправка утренних планов, вечерних итогов и тревожных уведомлений об авариях.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Automated morning plans, evening results, and instant emergency alerts.</p>
                     </a>
                 </div>
                 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#pdf" class="feature-card text-center">
                         <i class="fas fa-file-pdf fa-3x text-neon-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Генерация PDF</h4>
-                        <p class="text-slate-300 small mb-0">Создание актов ТО, паспортов оборудования и журналов событий прямо на устройстве.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Генерация PDF</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">PDF Generation</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Создание актов ТО, паспортов оборудования и журналов событий прямо на устройстве.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Create maintenance acts, equipment passports, and event logs directly on the device.</p>
                     </a>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#excel" class="feature-card text-center">
                         <i class="fas fa-file-excel fa-3x text-accent-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Импорт из Excel</h4>
-                        <p class="text-slate-300 small mb-0">Быстрый старт: массовая загрузка сотен агрегатов и подстанций из табличных файлов.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Импорт из Excel</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Excel Import</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Быстрый старт: массовая загрузка сотен агрегатов и подстанций из табличных файлов.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Quick start: mass upload of hundreds of units and substations from spreadsheets.</p>
                     </a>
                 </div>
 
                 <div class="col-md-6 col-lg-3">
                     <a href="features.html#data" class="feature-card text-center">
                         <i class="fas fa-database fa-3x text-neon-blue mb-3"></i>
-                        <h4 class="h5 fw-bold text-white">Резервное копирование</h4>
-                        <p class="text-slate-300 small mb-0">Сохраняйте бэкапы локально или в Telegram. Поддержка функции слияния БД для работы в команде.</p>
+                        <h4 class="h5 fw-bold text-white lang-section lang-ru active">Резервное копирование</h4>
+                        <h4 class="h5 fw-bold text-white lang-section lang-en">Backup & Sync</h4>
+                        <p class="text-slate-300 small mb-0 lang-section lang-ru active">Сохраняйте бэкапы локально или в Telegram. Поддержка функции слияния БД для работы в команде.</p>
+                        <p class="text-slate-300 small mb-0 lang-section lang-en">Save backups locally or via Telegram. Database merging support for teamwork.</p>
                     </a>
                 </div>
                 
@@ -171,54 +244,101 @@
         </div>
     </section>
 
-    <!-- Руководство пользователя (НОВЫЙ БЛОК) -->
     <section class="manual-section py-5 my-4">
         <div class="container text-center">
-            <h2 class="fw-bold text-white mb-3">С чего начать работу?</h2>
-            <p class="text-slate-300 mb-4 mx-auto fs-5" style="max-width: 800px;">
-                Мы подготовили подробное пошаговое руководство, которое поможет вам настроить иерархию, подключить Telegram-бота и загрузить первое оборудование.
-            </p>
+            <div class="lang-section lang-ru active">
+                <h2 class="fw-bold text-white mb-3">С чего начать работу?</h2>
+                <p class="text-slate-300 mb-4 mx-auto fs-5" style="max-width: 800px;">
+                    Мы подготовили подробное пошаговое руководство, которое поможет вам настроить иерархию, подключить Telegram-бота и загрузить первое оборудование.
+                </p>
+            </div>
+            <div class="lang-section lang-en">
+                <h2 class="fw-bold text-white mb-3">How to Get Started?</h2>
+                <p class="text-slate-300 mb-4 mx-auto fs-5" style="max-width: 800px;">
+                    We have prepared a detailed step-by-step user guide to help you set up hierarchy, connect a Telegram bot, and upload your first asset.
+                </p>
+            </div>
             <a href="manual.html" class="btn btn-outline-light btn-lg rounded-pill px-5 border-2">
-                <i class="fas fa-book-open me-2"></i> Читать руководство пользователя
+                <i class="fas fa-book-open me-2"></i> 
+                <span class="lang-section lang-ru active">Читать руководство пользователя</span>
+                <span class="lang-section lang-en">Read User Guide</span>
             </a>
         </div>
     </section>
 
-    <!-- Сравнение версий (Цвета исправлены!) -->
     <section class="py-5 mb-4">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5 text-white">Тарифы</h2>
+            <h2 class="text-center fw-bold mb-5 text-white lang-section lang-ru active">Тарифы</h2>
+            <h2 class="text-center fw-bold mb-5 text-white lang-section lang-en">Pricing Plans</h2>
+            
             <div class="row justify-content-center g-4">
-                <!-- Free -->
                 <div class="col-md-5 col-lg-4">
                     <div class="pricing-card h-100 d-flex flex-column">
-                        <h3 class="text-center mb-4 text-white">Базовая версия</h3>
+                        <h3 class="text-center mb-4 text-white lang-section lang-ru active">Базовая версия</h3>
+                        <h3 class="text-center mb-4 text-white lang-section lang-en">Base Version</h3>
+                        
                         <ul class="list-unstyled mb-4 flex-grow-1">
-                            <li class="mb-3 text-slate-300"><i class="fas fa-check me-2" style="color: #64748b;"></i> До 30 агрегатов в базе</li>
-                            <li class="mb-3 text-slate-300"><i class="fas fa-check me-2" style="color: #64748b;"></i> Локальное хранение данных</li>
-                            <li class="mb-3 text-slate-300"><i class="fas fa-check me-2" style="color: #64748b;"></i> PDF отчеты (с водяным знаком)</li>
-                            <li class="mb-3 text-slate-300"><i class="fas fa-check me-2" style="color: #64748b;"></i> Интеграция с Telegram</li>
+                            <li class="mb-3 text-slate-300">
+                                <i class="fas fa-check me-2 text-neon-blue"></i> 
+                                <span class="lang-section lang-ru active">До 30 агрегатов в базе</span>
+                                <span class="lang-section lang-en">Up to 30 units in database</span>
+                            </li>
+                            <li class="mb-3 text-slate-300">
+                                <i class="fas fa-check me-2 text-neon-blue"></i> 
+                                <span class="lang-section lang-ru active">Локальное хранение данных</span>
+                                <span class="lang-section lang-en">Local data storage</span>
+                            </li>
+                            <li class="mb-3 text-slate-300">
+                                <i class="fas fa-check me-2 text-neon-blue"></i> 
+                                <span class="lang-section lang-ru active">PDF отчеты (с водяным знаком)</span>
+                                <span class="lang-section lang-en">PDF reports (with watermark)</span>
+                            </li>
+                            <li class="mb-3 text-slate-300">
+                                <i class="fas fa-check me-2 text-neon-blue"></i> 
+                                <span class="lang-section lang-ru active">Интеграция с Telegram</span>
+                                <span class="lang-section lang-en">Telegram integration</span>
+                            </li>
                         </ul>
                         <div class="text-center mt-auto pt-3 border-top border-secondary">
-                            <span class="h4 fw-bold text-white">Бесплатно</span>
+                            <span class="h4 fw-bold text-white lang-section lang-ru active">Бесплатно</span>
+                            <span class="h4 fw-bold text-white lang-section lang-en">Free</span>
                         </div>
                     </div>
                 </div>
-                <!-- PRO -->
+                
                 <div class="col-md-5 col-lg-4">
                     <div class="pricing-card pro h-100 position-relative d-flex flex-column">
                         <div class="position-absolute top-0 start-50 translate-middle badge bg-accent-blue rounded-pill px-3 py-2 text-white fw-bold shadow">
-                            Для профессионалов
+                            <span class="lang-section lang-ru active">Для профессионалов</span>
+                            <span class="lang-section lang-en">For Professionals</span>
                         </div>
                         <h3 class="text-center mb-4 text-accent-blue">PRO Версия</h3>
+                        
                         <ul class="list-unstyled mb-4 flex-grow-1">
-                            <li class="mb-3 text-white"><i class="fas fa-check text-accent-blue me-2"></i> <b>Безлимитное</b> оборудование</li>
-                            <li class="mb-3 text-white"><i class="fas fa-check text-accent-blue me-2"></i> Слияние БД (командная работа)</li>
-                            <li class="mb-3 text-white"><i class="fas fa-check text-accent-blue me-2"></i> Чистые PDF отчеты (без знаков)</li>
-                            <li class="mb-3 text-white"><i class="fas fa-check text-accent-blue me-2"></i> Умное копирование узлов</li>
+                            <li class="mb-3 text-white">
+                                <i class="fas fa-check text-accent-blue me-2"></i> 
+                                <span class="lang-section lang-ru active"><b>Безлимитное</b> оборудование</span>
+                                <span class="lang-section lang-en"><b>Unlimited</b> equipment</span>
+                            </li>
+                            <li class="mb-3 text-white">
+                                <i class="fas fa-check text-accent-blue me-2"></i> 
+                                <span class="lang-section lang-ru active">Слияние БД (командная работа)</span>
+                                <span class="lang-section lang-en">DB merging (teamwork)</span>
+                            </li>
+                            <li class="mb-3 text-white">
+                                <i class="fas fa-check text-accent-blue me-2"></i> 
+                                <span class="lang-section lang-ru active">Чистые PDF отчеты (без знаков)</span>
+                                <span class="lang-section lang-en">Clean PDF reports (no watermarks)</span>
+                            </li>
+                            <li class="mb-3 text-white">
+                                <i class="fas fa-check text-accent-blue me-2"></i> 
+                                <span class="lang-section lang-ru active">Умное копирование узлов</span>
+                                <span class="lang-section lang-en">Smart component copying</span>
+                            </li>
                         </ul>
                         <div class="text-center mt-auto pt-3 border-top border-secondary">
-                            <span class="h6 text-slate-300">Единоразовая покупка в приложении</span>
+                            <span class="h6 text-slate-300 lang-section lang-ru active">Единоразовая покупка в приложении</span>
+                            <span class="h6 text-slate-300 lang-section lang-en">One-time in-app purchase</span>
                         </div>
                     </div>
                 </div>
@@ -226,19 +346,48 @@
         </div>
     </section>
 
-    <!-- Подвал -->
-    <footer class="py-5 text-center mt-auto bg-black">
+    <footer class="py-4 text-center mt-auto bg-black">
         <div class="container">
-            <p class="text-slate-300 mb-3">&copy; 2026 Промышленный журнал АСУТП. InduLogix.</p>
-            <div class="d-flex flex-wrap justify-content-center gap-3 gap-md-4">
-                <a href="manual.html" class="text-neon-blue text-decoration-none small"><i class="fas fa-book me-1"></i> Руководство</a>
-                <span class="text-muted d-none d-md-inline">|</span>
-                <a href="privacy.html" class="text-neon-blue text-decoration-none small"><i class="fas fa-shield-alt me-1"></i> Политика безопасности</a>
-                <span class="text-muted d-none d-md-inline">|</span>
-                <a href="mailto:devinforep@gmail.com" class="text-neon-blue text-decoration-none small"><i class="fas fa-envelope me-1"></i> Связаться с разработчиком</a>
+            <p class="text-slate-300 mb-2">&copy; 2026 Промышленный журнал АСУТП. InduLogix.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="manual.html" class="text-neon-blue text-decoration-none small">
+                    <span class="lang-section lang-ru active">Руководство</span>
+                    <span class="lang-section lang-en">User Guide</span>
+                </a>
+                <span class="text-muted small">|</span>
+                <a href="privacy.html" class="text-neon-blue text-decoration-none small">
+                    <span class="lang-section lang-ru active">Политика безопасности</span>
+                    <span class="lang-section lang-en">Privacy Policy</span>
+                </a>
+                <span class="text-muted small">|</span>
+                <a href="mailto:devinforep@gmail.com" class="text-neon-blue text-decoration-none small">
+                    <span class="lang-section lang-ru active">Связаться с разработчиком</span>
+                    <span class="lang-section lang-en">Contact Developer</span>
+                </a>
             </div>
         </div>
     </footer>
 
+    <script>
+        function switchLang(lang) {
+            document.getElementById('btn-ru').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            
+            const ruSections = document.querySelectorAll('.lang-ru');
+            const enSections = document.querySelectorAll('.lang-en');
+            
+            ruSections.forEach(s => s.classList.remove('active'));
+            enSections.forEach(s => s.classList.remove('active'));
+            
+            document.getElementById('btn-' + lang).classList.add('active');
+            
+            const activeSections = document.querySelectorAll('.lang-' + lang);
+            activeSections.forEach(s => s.classList.add('active'));
+        }
+        
+        if (!navigator.language.startsWith('ru')) {
+            switchLang('en');
+        }
+    </script>
 </body>
 </html>
