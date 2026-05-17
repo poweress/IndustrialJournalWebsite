@@ -21,25 +21,6 @@
         
         .feature-icon-wrapper { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
         
-        /* Улучшенная заглушка для скриншотов */
-        .screenshot-placeholder {
-            width: 100%;
-            height: 450px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #334155;
-            color: #64748b;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-        .screenshot-placeholder:hover {
-            border-color: #3b82f6;
-            color: #94a3b8;
-        }
-        
         .nav-back { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
         .nav-back:hover { color: #8bd3fe; }
         
@@ -71,6 +52,37 @@
         .lang-section { display: none !important; }
         .lang-section.active { display: block !important; }
         span.lang-section.active { display: inline !important; }
+        
+        /* Стили для сетки скриншотов */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+        
+        .app-screenshot {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #0f172a;
+            transition: transform 0.3s ease;
+        }
+        
+        .app-screenshot:hover {
+            transform: translateY(-5px);
+            border-color: #8bd3fe;
+        }
     </style>
 </head>
 <body>
@@ -80,8 +92,8 @@
         <div class="container d-flex justify-content-between align-items-center">
             <a href="index.html" class="nav-back fw-bold">
                 <i class="fas fa-arrow-left me-2"></i> 
-                <span class="lang-section lang-ru active d-inline">Вернуться на главную</span>
-                <span class="lang-section lang-en d-inline">Back to Main</span>
+                <span class="lang-section lang-ru active">Вернуться на главную</span>
+                <span class="lang-section lang-en">Back to Main</span>
             </a>
             
             <div class="lang-switch mb-0">
@@ -92,136 +104,131 @@
         </div>
     </nav>
 
-    <!-- 1. Оффлайн -->
+    <!-- 1. Оффлайн (Журнал + Состав) -->
     <section id="offline" class="feature-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-accent-blue"><i class="fas fa-wifi fa-3x text-white"></i></div>
                     
                     <div class="lang-section lang-ru active">
                         <h2 class="fw-bold text-white mb-4">Настоящий Offline-first</h2>
-                        <p class="fs-5 text-slate-300">Приложение спроектировано так, чтобы работать на 100% автономно в цехах и подвалах без доступа к интернету.</p>
+                        <p class="fs-5 text-slate-300">Приложение работает на 100% автономно в цехах и подвалах без доступа к интернету.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> База данных надежно хранится во внутренней памяти вашего устройства.</li>
-                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Добавляйте фотографии к дефектам прямо из цеха без задержек.</li>
-                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Отложенная отправка: отчеты в Telegram уйдут автоматически при появлении сети.</li>
+                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Вкладка «Журнал» позволяет добавлять записи о работах прямо на месте.</li>
+                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Прикрепляйте до 5 фотографий к дефектам. Изображения автоматически сжимаются для экономии памяти.</li>
+                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Просматривайте спецификацию и параметры ПЧ даже без сети.</li>
                         </ul>
                     </div>
 
                     <div class="lang-section lang-en">
                         <h2 class="fw-bold text-white mb-4">True Offline-first</h2>
-                        <p class="fs-5 text-slate-300">The app is designed to be 100% autonomous, working flawlessly in workshops and basements without cellular network.</p>
+                        <p class="fs-5 text-slate-300">The app is designed to be 100% autonomous, working flawlessly in workshops without cellular network.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> The database is securely stored in your device's internal memory.</li>
-                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Attach photos to defect logs directly on-site without any delays.</li>
-                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Deferred sending: Telegram reports will be sent automatically once the connection is restored.</li>
+                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> The «Journal» tab allows you to log work records directly on-site.</li>
+                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> Attach up to 5 photos to defects. Images are automatically compressed to save space.</li>
+                            <li class="mb-3"><i class="fas fa-check text-accent-blue me-2"></i> View specifications and VFD parameters even without a network.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <img src="screen-offle.jpg" alt="Оффлайн работа" class="img-fluid rounded-4 shadow-lg border border-secondary">
-                        </div>
+                <div class="col-lg-6 offset-lg-1 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_4_2026-05-17_12-40-15.jpg" alt="Оффлайн журнал" class="app-screenshot">
+                        <img src="photo_3_2026-05-17_12-40-15.jpg" alt="Спецификация агрегата" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. Иерархия -->
+    <!-- 2. Иерархия (Главная + Список агрегатов) -->
     <section id="hierarchy" class="feature-section bg-dark-card">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-sitemap fa-3x text-dark"></i></div>
                     
                     <div class="lang-section lang-ru active">
                         <h2 class="fw-bold text-white mb-4">Жесткая иерархия объектов</h2>
-                        <p class="fs-5 text-slate-300">Забудьте про хаос в записях. Находите любой нужный узел за пару секунд благодаря строгой логике построения базы.</p>
-                        <div class="p-4 rounded-4 mt-4" style="background-color: #020617; border: 1px solid #1e293b;">
-                            <div class="d-flex align-items-center mb-3"><i class="fas fa-industry text-neon-blue me-3"></i> <strong>Предприятие</strong> (Главный завод)</div>
-                            <div class="d-flex align-items-center mb-3 ms-4"><i class="fas fa-warehouse text-accent-blue me-3"></i> <strong>Цех</strong> (Участок производства)</div>
-                            <div class="d-flex align-items-center mb-3 ms-5"><i class="fas fa-bolt text-warning me-3"></i> <strong>Подстанция / ЩСУ</strong> (Опционально)</div>
-                            <div class="d-flex align-items-center ms-5 ps-4"><i class="fas fa-cogs text-info me-3"></i> <strong>Агрегат</strong> (Насос, Конвейер, Вентилятор)</div>
-                        </div>
+                        <p class="fs-5 text-slate-300">Наглядная структура. Находите любой нужный узел за пару секунд благодаря строгой логике построения базы.</p>
+                        <ul class="list-unstyled mt-4 text-slate-300">
+                            <li class="mb-3"><i class="fas fa-industry text-neon-blue me-2"></i> Главный экран отображает список ваших цехов с круговыми индикаторами ППР.</li>
+                            <li class="mb-3"><i class="fas fa-bolt text-neon-blue me-2"></i> Отслеживайте количество агрегатов и их суммарную расчетную мощность (в кВт) по каждому цеху.</li>
+                            <li class="mb-3"><i class="fas fa-cogs text-neon-blue me-2"></i> Визуальные статусы (В работе / В ремонте / Резерв) и удобный поиск по Тэгам.</li>
+                        </ul>
                     </div>
 
                     <div class="lang-section lang-en">
                         <h2 class="fw-bold text-white mb-4">Strict Object Hierarchy</h2>
-                        <p class="fs-5 text-slate-300">Forget about chaotic records. Find any necessary node in a few seconds thanks to the strict database structure logic.</p>
-                        <div class="p-4 rounded-4 mt-4" style="background-color: #020617; border: 1px solid #1e293b;">
-                            <div class="d-flex align-items-center mb-3"><i class="fas fa-industry text-neon-blue me-3"></i> <strong>Enterprise</strong> (Main Factory)</div>
-                            <div class="d-flex align-items-center mb-3 ms-4"><i class="fas fa-warehouse text-accent-blue me-3"></i> <strong>Workshop</strong> (Production Area)</div>
-                            <div class="d-flex align-items-center mb-3 ms-5"><i class="fas fa-bolt text-warning me-3"></i> <strong>Substation / MCC</strong> (Optional)</div>
-                            <div class="d-flex align-items-center ms-5 ps-4"><i class="fas fa-cogs text-info me-3"></i> <strong>Unit</strong> (Pump, Conveyor, Fan)</div>
-                        </div>
+                        <p class="fs-5 text-slate-300">Clear structure. Find any necessary node in a few seconds thanks to the strict database structure logic.</p>
+                        <ul class="list-unstyled mt-4 text-slate-300">
+                            <li class="mb-3"><i class="fas fa-industry text-neon-blue me-2"></i> The main screen displays a list of your workshops with circular PM indicators.</li>
+                            <li class="mb-3"><i class="fas fa-bolt text-neon-blue me-2"></i> Track the number of units and their total calculated power (in kW) for each workshop.</li>
+                            <li class="mb-3"><i class="fas fa-cogs text-neon-blue me-2"></i> Visual statuses (Running / Repair / Reserve) and convenient Tag search.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ ИЕРАРХИЯ (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                        -->
-                    <!-- Пример: <img src="screen-hierarchy.jpg" alt="Hierarchy" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <img src="screen-hierahy.jpg" alt="Иерархия оборудования" class="img-fluid rounded-4 shadow-lg border border-secondary">
+                <div class="col-lg-6 offset-lg-0 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_1_2026-05-17_12-40-15.jpg" alt="Главный экран иерархии" class="app-screenshot">
+                        <img src="photo_2_2026-05-17_12-40-15.jpg" alt="Список оборудования" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. План-график -->
+    <!-- 3. План-график (Список + Диалог создания) -->
     <section id="planner" class="feature-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-accent-blue"><i class="fas fa-calendar-alt fa-3x text-white"></i></div>
                     
                     <div class="lang-section lang-ru active">
                         <h2 class="fw-bold text-white mb-4">Интеллектуальный План-график</h2>
-                        <p class="fs-5 text-slate-300">Распределяйте задачи по дням месяца и контролируйте их выполнение с помощью удобного календаря.</p>
+                        <p class="fs-5 text-slate-300">Распределяйте задачи по дням месяца и контролируйте их выполнение с помощью удобного списка.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-layer-group text-accent-blue me-2"></i> Задачи автоматически группируются по цехам для удобства чтения.</li>
-                            <li class="mb-3"><i class="fas fa-tasks text-accent-blue me-2"></i> Возможность массового создания задач сразу на несколько подстанций.</li>
-                            <li class="mb-3"><i class="fas fa-history text-accent-blue me-2"></i> Система «долгов»: невыполненные задачи за прошлые дни легко переносятся на сегодня.</li>
+                            <li class="mb-3"><i class="fas fa-layer-group text-accent-blue me-2"></i> Задачи автоматически группируются по датам и цехам для удобства чтения.</li>
+                            <li class="mb-3"><i class="fas fa-check-square text-accent-blue me-2"></i> Отмечайте выполнение задач галочками. Цветовая индикация сразу покажет прогресс.</li>
+                            <li class="mb-3"><i class="fas fa-tasks text-accent-blue me-2"></i> Легко создавайте массовые задачи сразу на несколько подстанций и отслеживайте охват агрегатов.</li>
                         </ul>
                     </div>
 
                     <div class="lang-section lang-en">
                         <h2 class="fw-bold text-white mb-4">Smart Planner</h2>
-                        <p class="fs-5 text-slate-300">Distribute tasks by days of the month and track their completion using a convenient calendar.</p>
+                        <p class="fs-5 text-slate-300">Distribute tasks by days of the month and track their completion using a convenient list.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-layer-group text-accent-blue me-2"></i> Tasks are automatically grouped by workshops for easy reading.</li>
-                            <li class="mb-3"><i class="fas fa-tasks text-accent-blue me-2"></i> Ability to mass-create tasks for multiple substations at once.</li>
-                            <li class="mb-3"><i class="fas fa-history text-accent-blue me-2"></i> Debt system: uncompleted tasks from previous days can be easily migrated to today.</li>
+                            <li class="mb-3"><i class="fas fa-layer-group text-accent-blue me-2"></i> Tasks are automatically grouped by dates and workshops for easy reading.</li>
+                            <li class="mb-3"><i class="fas fa-check-square text-accent-blue me-2"></i> Mark completed tasks with checkboxes. Color indication shows progress instantly.</li>
+                            <li class="mb-3"><i class="fas fa-tasks text-accent-blue me-2"></i> Easily create mass tasks for multiple substations and track equipment coverage.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ ПЛАН-ГРАФИК (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                     -->
-                    <!-- Пример: <img src="screen-planner.jpg" alt="Planner" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <img src="screen-planr.jpg" alt="Планирование" class="img-fluid rounded-4 shadow-lg border border-secondary">
+                <div class="col-lg-6 offset-lg-1 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_6_2026-05-17_12-40-15.jpg" alt="План-график" class="app-screenshot">
+                        <img src="photo_8_2026-05-17_12-40-15.jpg" alt="Создание задачи" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Аналитика -->
+    <!-- 4. Аналитика (Графики + Сводка) -->
     <section id="analytics" class="feature-section bg-dark-card">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-chart-pie fa-3x text-dark"></i></div>
                     
                     <div class="lang-section lang-ru active">
                         <h2 class="fw-bold text-white mb-4">Мощная Аналитика</h2>
                         <p class="fs-5 text-slate-300">Контролируйте производственные показатели прямо с экрана телефона в режиме реального времени.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-percentage text-neon-blue me-2"></i> Подсчет глобального процента охвата оборудования Актами ТО (ППР).</li>
-                            <li class="mb-3"><i class="fas fa-chart-bar text-neon-blue me-2"></i> Гистограммы суммарной мощности двигателей по каждому цеху.</li>
-                            <li class="mb-3"><i class="fas fa-users text-neon-blue me-2"></i> Рейтинг активности персонала (кто зафиксировал больше всего дефектов).</li>
+                            <li class="mb-3"><i class="fas fa-chart-bar text-neon-blue me-2"></i> Наглядные гистограммы выполнения ТО и распределения установленной мощности (в МВт).</li>
+                            <li class="mb-3"><i class="fas fa-power-off text-neon-blue me-2"></i> Сводка состояний: точно знайте, сколько агрегатов находится «В работе», а сколько «В ремонте».</li>
+                            <li class="mb-3"><i class="fas fa-users text-neon-blue me-2"></i> Подсчет глобального процента охвата оборудования Актами ППР.</li>
                         </ul>
                     </div>
 
@@ -229,38 +236,36 @@
                         <h2 class="fw-bold text-white mb-4">Powerful Analytics</h2>
                         <p class="fs-5 text-slate-300">Monitor production metrics directly from your phone screen in real time.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-percentage text-neon-blue me-2"></i> Global percentage calculation of equipment covered by Maintenance Acts.</li>
-                            <li class="mb-3"><i class="fas fa-chart-bar text-neon-blue me-2"></i> Histograms of total motor power for each workshop.</li>
-                            <li class="mb-3"><i class="fas fa-users text-neon-blue me-2"></i> Personnel activity rating (who logged the most defects).</li>
+                            <li class="mb-3"><i class="fas fa-chart-bar text-neon-blue me-2"></i> Visual histograms of Maintenance completion and installed power distribution (in MW).</li>
+                            <li class="mb-3"><i class="fas fa-power-off text-neon-blue me-2"></i> State summary: know exactly how many units are "Running" and how many are "In Repair".</li>
+                            <li class="mb-3"><i class="fas fa-users text-neon-blue me-2"></i> Global percentage calculation of equipment covered by Maintenance Acts.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ АНАЛИТИКА (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                       -->
-                    <!-- Пример: <img src="screen-analytics.jpg" alt="Analytics" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <img src="screen-analyts.png" alt="Аналитика" class="img-fluid rounded-4 shadow-lg border border-secondary">
+                <div class="col-lg-6 offset-lg-0 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_10_2026-05-17_12-40-15.jpg" alt="Графики аналитики" class="app-screenshot">
+                        <img src="photo_9_2026-05-17_12-40-15.jpg" alt="Сводка аналитики" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Telegram -->
+    <!-- 5. Telegram (Настройки + Диалог отправки плана) -->
     <section id="telegram" class="feature-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-accent-blue"><i class="fab fa-telegram-plane fa-3x text-white"></i></div>
                     
                     <div class="lang-section lang-ru active">
                         <h2 class="fw-bold text-white mb-4">Интеграция с Telegram</h2>
-                        <p class="fs-5 text-slate-300">Приложение само напишет отчет! Подключите бота и настройте автоматическую выгрузку данных.</p>
+                        <p class="fs-5 text-slate-300">Приложение само напишет отчет начальству! Подключите бота и настройте автоматическую выгрузку данных.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-exclamation-triangle text-accent-blue me-2"></i> <strong>Аварии:</strong> Мгновенные уведомления с фото при фиксации дефекта.</li>
-                            <li class="mb-3"><i class="fas fa-clock text-accent-blue me-2"></i> <strong>Авто-отчеты:</strong> Фоновая отправка утреннего плана работ и вечерних итогов.</li>
-                            <li class="mb-3"><i class="fas fa-comments text-accent-blue me-2"></i> <strong>Форумы:</strong> Поддержка сортировки сообщений по темам (Топикам) внутри группы.</li>
+                            <li class="mb-3"><i class="fas fa-magic text-accent-blue me-2"></i> <strong>Магия настройки:</strong> Отправьте боту команду <code>/start</code>, и приложение само найдет нужный Chat ID.</li>
+                            <li class="mb-3"><i class="fas fa-clock text-accent-blue me-2"></i> <strong>Авто-отчеты:</strong> Установите время для фоновой отправки утреннего плана работ и вечерних итогов.</li>
+                            <li class="mb-3"><i class="fas fa-paper-plane text-accent-blue me-2"></i> <strong>Ручная отправка:</strong> Выбирайте нужный период и мгновенно пересылайте планы прямо из приложения.</li>
                         </ul>
                     </div>
 
@@ -268,145 +273,127 @@
                         <h2 class="fw-bold text-white mb-4">Telegram Integration</h2>
                         <p class="fs-5 text-slate-300">The app will write reports for you! Connect a bot and set up automatic data export.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-exclamation-triangle text-accent-blue me-2"></i> <strong>Emergencies:</strong> Instant notifications with photos when a defect is logged.</li>
-                            <li class="mb-3"><i class="fas fa-clock text-accent-blue me-2"></i> <strong>Auto-reports:</strong> Background sending of morning work plans and evening summaries.</li>
-                            <li class="mb-3"><i class="fas fa-comments text-accent-blue me-2"></i> <strong>Forums:</strong> Support for sorting messages by Topics within a group chat.</li>
+                            <li class="mb-3"><i class="fas fa-magic text-accent-blue me-2"></i> <strong>Magic Setup:</strong> Send <code>/start</code> to the bot, and the app will auto-detect the Chat ID.</li>
+                            <li class="mb-3"><i class="fas fa-clock text-accent-blue me-2"></i> <strong>Auto-reports:</strong> Set the time for background sending of morning plans and evening results.</li>
+                            <li class="mb-3"><i class="fas fa-paper-plane text-accent-blue me-2"></i> <strong>Manual send:</strong> Select the required period and instantly forward plans directly from the app.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ ТЕЛЕГРАМ (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                        -->
-                    <!-- Пример: <img src="screen-telegram.jpg" alt="Telegram" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <div class="screenshot-placeholder">
-                        <div class="text-center">
-                            <i class="fas fa-paper-plane fa-4x mb-3 opacity-50"></i>
-                            <p class="mb-0 fw-bold lang-section lang-ru active">Скриншот: Отчеты в Telegram</p>
-                            <p class="mb-0 fw-bold lang-section lang-en">Screenshot: Telegram Reports</p>
-                        </div>
+                <div class="col-lg-6 offset-lg-1 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_14_2026-05-17_12-40-15.jpg" alt="Настройки Telegram" class="app-screenshot">
+                        <img src="photo_7_2026-05-17_12-40-15.jpg" alt="Отправка в Telegram" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. PDF -->
+    <!-- 6. PDF (Список актов + Параметры отчета) -->
     <section id="pdf" class="feature-section bg-dark-card">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-file-pdf fa-3x text-dark"></i></div>
                     
                     <div class="lang-section lang-ru active">
                         <h2 class="fw-bold text-white mb-4">Генерация красивых PDF</h2>
-                        <p class="fs-5 text-slate-300">Больше не нужно переписывать данные в Word. Генерируйте готовые к печати документы прямо на телефоне.</p>
+                        <p class="fs-5 text-slate-300">Генерируйте готовые к печати документы прямо на телефоне и отправляйте их в один клик.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-book text-neon-blue me-2"></i> Сводный журнал событий и дефектов за выбранный период.</li>
-                            <li class="mb-3"><i class="fas fa-clipboard-list text-neon-blue me-2"></i> Паспортная спецификация цеха с полным составом узлов.</li>
-                            <li class="mb-3"><i class="fas fa-file-signature text-neon-blue me-2"></i> Заполненные Акты ТО с результатами проверок (по вашим чек-листам).</li>
+                            <li class="mb-3"><i class="fas fa-file-signature text-neon-blue me-2"></i> <strong>Акты ТО:</strong> Создавайте акты с указанием исполнителя, инвентарных номеров и статуса (Исправно/Дефект).</li>
+                            <li class="mb-3"><i class="fas fa-filter text-neon-blue me-2"></i> Гибкие фильтры: выбирайте тип отчета, конкретный цех, подстанцию и нужный период времени.</li>
+                            <li class="mb-3"><i class="fas fa-clipboard-list text-neon-blue me-2"></i> <strong>Спецификация:</strong> Автоматический паспорт цеха с полным составом узлов.</li>
                         </ul>
                     </div>
 
                     <div class="lang-section lang-en">
                         <h2 class="fw-bold text-white mb-4">Beautiful PDF Generation</h2>
-                        <p class="fs-5 text-slate-300">No more rewriting data in Word. Generate ready-to-print documents directly on your phone.</p>
+                        <p class="fs-5 text-slate-300">Generate ready-to-print documents directly on your phone and share them in one click.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-book text-neon-blue me-2"></i> Summary log of events and defects for the selected period.</li>
-                            <li class="mb-3"><i class="fas fa-clipboard-list text-neon-blue me-2"></i> Workshop passport specification with full equipment composition.</li>
-                            <li class="mb-3"><i class="fas fa-file-signature text-neon-blue me-2"></i> Completed Maintenance Acts with inspection results (based on your checklists).</li>
+                            <li class="mb-3"><i class="fas fa-file-signature text-neon-blue me-2"></i> <strong>Maintenance Acts:</strong> Create acts specifying the executor, inventory numbers, and status.</li>
+                            <li class="mb-3"><i class="fas fa-filter text-neon-blue me-2"></i> Flexible filters: select report type, specific workshop, substation, and required time period.</li>
+                            <li class="mb-3"><i class="fas fa-clipboard-list text-neon-blue me-2"></i> <strong>Specification:</strong> Automatic workshop passport with full equipment composition.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ ПДФ ОТЧЕТ (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                       -->
-                    <!-- Пример: <img src="screen-pdf.jpg" alt="PDF Reports" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <div class="screenshot-placeholder">
-                        <div class="text-center">
-                            <i class="fas fa-file-invoice fa-4x mb-3 opacity-50"></i>
-                            <p class="mb-0 fw-bold lang-section lang-ru active">Скриншот: Готовый PDF акт</p>
-                            <p class="mb-0 fw-bold lang-section lang-en">Screenshot: Generated PDF Act</p>
-                        </div>
+                <div class="col-lg-6 offset-lg-0 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_5_2026-05-17_12-40-15.jpg" alt="PDF Акты ТО" class="app-screenshot">
+                        <img src="photo_11_2026-05-17_12-40-15.jpg" alt="Параметры PDF отчета" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. Excel -->
+    <!-- 7. Excel (Импорт + Оформление/Настройки) -->
     <section id="excel" class="feature-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-accent-blue"><i class="fas fa-file-excel fa-3x text-white"></i></div>
                     
                     <div class="lang-section lang-ru active">
-                        <h2 class="fw-bold text-white mb-4">Импорт из Excel</h2>
-                        <p class="fs-5 text-slate-300">Быстрый старт для новых пользователей. Загрузите сотни агрегатов разом с помощью специального шаблона.</p>
-                        <p class="text-slate-300">Приложение автоматически распознает структуру и создаст необходимые Предприятия, Цеха и Подстанции, раскидав оборудование по своим местам.</p>
+                        <h2 class="fw-bold text-white mb-4">Импорт Excel и Настройки</h2>
+                        <p class="fs-5 text-slate-300">Адаптируйте приложение под себя и загрузите базу в пару кликов.</p>
+                        <ul class="list-unstyled mt-4 text-slate-300">
+                            <li class="mb-3"><i class="fas fa-upload text-accent-blue me-2"></i> <strong>Быстрый старт:</strong> Загрузите сотни агрегатов разом с помощью шаблона (.xlsx).</li>
+                            <li class="mb-3"><i class="fas fa-table text-accent-blue me-2"></i> Приложение само распознает столбцы: Предприятие, Цех, ПС, Агрегат, Мощность, Напряжение и др.</li>
+                            <li class="mb-3"><i class="fas fa-palette text-accent-blue me-2"></i> <strong>Персонализация:</strong> Выбирайте темную или светлую тему оформления и удобный язык интерфейса.</li>
+                        </ul>
                     </div>
 
                     <div class="lang-section lang-en">
-                        <h2 class="fw-bold text-white mb-4">Excel Import</h2>
-                        <p class="fs-5 text-slate-300">Quick start for new users. Upload hundreds of units at once using a special spreadsheet template.</p>
-                        <p class="text-slate-300">The app automatically recognizes the structure and creates the necessary Enterprises, Workshops, and Substations, sorting the equipment into its places.</p>
+                        <h2 class="fw-bold text-white mb-4">Excel Import & Settings</h2>
+                        <p class="fs-5 text-slate-300">Adapt the app to your needs and upload your database in a few clicks.</p>
+                        <ul class="list-unstyled mt-4 text-slate-300">
+                            <li class="mb-3"><i class="fas fa-upload text-accent-blue me-2"></i> <strong>Quick start:</strong> Upload hundreds of units at once using a spreadsheet template (.xlsx).</li>
+                            <li class="mb-3"><i class="fas fa-table text-accent-blue me-2"></i> The app recognizes columns: Enterprise, Shop, Substation, Unit, Power, Voltage, etc.</li>
+                            <li class="mb-3"><i class="fas fa-palette text-accent-blue me-2"></i> <strong>Personalization:</strong> Choose a light or dark theme and a convenient interface language.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ EXCEL ИМПОРТ (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                    -->
-                    <!-- Пример: <img src="screen-excel.jpg" alt="Excel Import" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <div class="screenshot-placeholder">
-                        <div class="text-center">
-                            <i class="fas fa-table fa-4x mb-3 opacity-50"></i>
-                            <p class="mb-0 fw-bold lang-section lang-ru active">Скриншот: Экран импорта</p>
-                            <p class="mb-0 fw-bold lang-section lang-en">Screenshot: Import Screen</p>
-                        </div>
+                <div class="col-lg-6 offset-lg-1 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_16_2026-05-17_12-40-15.jpg" alt="Импорт Excel" class="app-screenshot">
+                        <img src="photo_12_2026-05-17_12-40-15.jpg" alt="Настройки темы и языка" class="app-screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 8. Бэкапы -->
+    <!-- 8. Бэкапы (Экспорт + Шаблоны/Профиль) -->
     <section id="data" class="feature-section bg-dark-card">
         <div class="container">
             <div class="row align-items-center flex-row-reverse">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="feature-icon-wrapper bg-neon-blue"><i class="fas fa-database fa-3x text-dark"></i></div>
                     
                     <div class="lang-section lang-ru active">
-                        <h2 class="fw-bold text-white mb-4">Надежное хранение данных</h2>
-                        <p class="fs-5 text-slate-300">Управляйте своими базами данных как профессионал.</p>
+                        <h2 class="fw-bold text-white mb-4">Командная работа и Базы</h2>
+                        <p class="fs-5 text-slate-300">Управляйте своими базами данных и стандартами компании как профессионал.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-save text-neon-blue me-2"></i> <strong>Бэкапы:</strong> Сохраняйте базу в единый файл-архив <code>.ijb</code> локально или отправляйте прямо в Telegram.</li>
-                            <li class="mb-3"><i class="fas fa-compress-arrows-alt text-neon-blue me-2"></i> <strong>Слияние БД (PRO):</strong> Командная работа стала реальностью. Импортируйте базу коллеги — приложение само объединит новые записи без дубликатов!</li>
+                            <li class="mb-3"><i class="fas fa-paper-plane text-neon-blue me-2"></i> <strong>Экспорт:</strong> Отправляйте архивный файл БД <code>.ijb</code> напрямую в Telegram одним нажатием.</li>
+                            <li class="mb-3"><i class="fas fa-compress-arrows-alt text-neon-blue me-2"></i> <strong>Слияние (PRO):</strong> Функция «Объединить» добавит оборудование от коллеги без удаления ваших личных записей!</li>
+                            <li class="mb-3"><i class="fas fa-wrench text-neon-blue me-2"></i> <strong>Стандарты:</strong> Создавайте свои уникальные чек-листы для обходов ТО и настраивайте профиль.</li>
                         </ul>
                     </div>
 
                     <div class="lang-section lang-en">
-                        <h2 class="fw-bold text-white mb-4">Reliable Data Storage</h2>
-                        <p class="fs-5 text-slate-300">Manage your databases like a professional.</p>
+                        <h2 class="fw-bold text-white mb-4">Teamwork & Databases</h2>
+                        <p class="fs-5 text-slate-300">Manage your databases and company standards like a professional.</p>
                         <ul class="list-unstyled mt-4 text-slate-300">
-                            <li class="mb-3"><i class="fas fa-save text-neon-blue me-2"></i> <strong>Backups:</strong> Save the database into a single <code>.ijb</code> archive file locally or send it directly to Telegram.</li>
-                            <li class="mb-3"><i class="fas fa-compress-arrows-alt text-neon-blue me-2"></i> <strong>DB Merging (PRO):</strong> Teamwork becomes a reality. Import a colleague's database, and the app will merge new records without duplicates!</li>
+                            <li class="mb-3"><i class="fas fa-paper-plane text-neon-blue me-2"></i> <strong>Export:</strong> Send the DB archive file <code>.ijb</code> directly to Telegram with one tap.</li>
+                            <li class="mb-3"><i class="fas fa-compress-arrows-alt text-neon-blue me-2"></i> <strong>Merge (PRO):</strong> The "Merge" function adds equipment from a colleague without deleting your personal records!</li>
+                            <li class="mb-3"><i class="fas fa-wrench text-neon-blue me-2"></i> <strong>Standards:</strong> Create your own unique checklists for maintenance inspections and set up your profile.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1">
-                    <!-- ========================================================================================= -->
-                    <!-- СКРИНШОТ БЭКАПЫ И БД (ЗАМЕНИТЬ ДИВ НИЖЕ НА ТЕГ <IMG>)                                     -->
-                    <!-- Пример: <img src="screen-data.jpg" alt="Data Management" class="img-fluid rounded-4 shadow-lg border border-secondary"> -->
-                    <!-- ========================================================================================= -->
-                    <div class="screenshot-placeholder">
-                        <div class="text-center">
-                            <i class="fas fa-hdd fa-4x mb-3 opacity-50"></i>
-                            <p class="mb-0 fw-bold lang-section lang-ru active">Скриншот: Управление БД</p>
-                            <p class="mb-0 fw-bold lang-section lang-en">Screenshot: Database Management</p>
-                        </div>
+                <div class="col-lg-6 offset-lg-0 mt-4 mt-lg-0">
+                    <div class="screenshot-grid">
+                        <img src="photo_15_2026-05-17_12-40-15.jpg" alt="Бэкапы и Слияние" class="app-screenshot">
+                        <img src="photo_13_2026-05-17_12-40-15.jpg" alt="Шаблоны и профиль" class="app-screenshot">
                     </div>
                 </div>
             </div>
@@ -429,7 +416,10 @@
                 <span class="lang-section lang-en d-inline">Download on Google Play</span>
             </a>
             
-            <p class="text-muted mb-2">&copy; 2026 Промышленный журнал АСУТП. InduLogix.</p>
+            <p class="text-muted mb-2">
+                <span class="lang-section lang-ru active">&copy; 2026 Промышленный журнал АСУТП. InduLogix.</span>
+                <span class="lang-section lang-en">&copy; 2026 Industrial Journal Automation. InduLogix.</span>
+            </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="manual.html" class="text-neon-blue text-decoration-none small">
                     <span class="lang-section lang-ru active d-inline">Руководство</span>
