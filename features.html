@@ -57,31 +57,38 @@
         .screenshot-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 20px;
+            align-items: center;
+            justify-items: center;
         }
         
         @media (max-width: 768px) {
             .screenshot-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 30px;
             }
         }
         
+        /* Имитация рамки смартфона вокруг картинки */
         .app-screenshot {
-            width: 100%;
+            max-width: 100%; /* Убрано жесткое width:100%, чтобы рамка облегала картинку */
             height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            border-radius: 16px;
-            border: 1px solid #334155;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #0f172a;
-            transition: transform 0.3s ease;
+            max-height: 550px;
+            object-fit: cover;
+            border-radius: 28px; /* Скругление как у экрана смартфона */
+            border: 8px solid #0f172a; /* Имитация темного корпуса (bezel) */
+            outline: 1px solid #1e293b; /* Внешняя тонкая грань корпуса */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            background-color: #020617;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: block;
         }
         
         .app-screenshot:hover {
-            transform: translateY(-5px);
-            border-color: #8bd3fe;
+            transform: translateY(-8px);
+            border-color: #1e293b;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15); /* Голубое свечение при наведении */
         }
     </style>
 </head>
