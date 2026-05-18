@@ -2,7 +2,7 @@
 
 Это репозиторий с исходными файлами сайта-визитки для Android-приложения **"Промышленный журнал АСУТП"**.
 
-🌐 **Сайт приложения:** [Перейти на сайт](https://poweress.github.io/IndustrialJournalWebsite/index.html) *(Убедитесь, что ссылка совпадает с вашей)*
+🌐 **Сайт приложения:** [Перейти на сайт](https://poweress.github.io/IndustrialJournalWebsite/index.html) 
 
 📱 **Скачать приложение:** [Google Play](https://play.google.com/store/apps/details?id=com.indulogix.industrialjournal)
 
